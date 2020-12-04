@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-12-04T16:33:36.373Z" agent="5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" etag="hTwvt6mbFapvRV4uloLx" version="13.10.9" type="github" pages="8">
+<mxfile host="app.diagrams.net" modified="2020-12-04T16:35:49.175Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36" etag="10OBNF4pDkzYfgnBxGX5" version="13.10.9" type="github" pages="8">
   <diagram id="lKxtB6D6K-3o9t04PIzB" name="Main">
-    <mxGraphModel dx="868" dy="450" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1038" dy="548" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="tMu2AY07BjXL__bY9_Zu-0" />
         <mxCell id="tMu2AY07BjXL__bY9_Zu-1" parent="tMu2AY07BjXL__bY9_Zu-0" />
@@ -137,7 +137,7 @@
             <mxGeometry x="315" y="420" width="120" height="60" as="geometry" />
           </mxCell>
         </UserObject>
-        <mxCell id="GxIgmwF6AEYl4qobg7O2-28" value="" style="endArrow=classic;html=1;" parent="1" edge="1">
+        <mxCell id="GxIgmwF6AEYl4qobg7O2-28" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="270" y="370" as="sourcePoint" />
             <mxPoint x="320" y="369.5" as="targetPoint" />
@@ -243,7 +243,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="ApTdeAuse1WmLWojz0__" name="function check important">
-    <mxGraphModel dx="868" dy="450" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="U7CppzZx9__meJYJCQPd-0" />
         <mxCell id="U7CppzZx9__meJYJCQPd-1" parent="U7CppzZx9__meJYJCQPd-0" />
@@ -365,7 +365,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="zMalPGHfQV55tFcWnKI-" name="function edit">
-    <mxGraphModel dx="868" dy="450" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1038" dy="548" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="v0lEeN28OU5zNVM8-bEz-0" />
         <mxCell id="v0lEeN28OU5zNVM8-bEz-1" parent="v0lEeN28OU5zNVM8-bEz-0" />
@@ -501,20 +501,20 @@
     </mxGraphModel>
   </diagram>
   <diagram id="SI3W1f3K3y4VhuoGthXO" name="function slide day">
-    <mxGraphModel dx="868" dy="450" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1038" dy="548" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="XZGBF5oeoLYiBJc0UyCA-0" />
         <mxCell id="XZGBF5oeoLYiBJc0UyCA-1" parent="XZGBF5oeoLYiBJc0UyCA-0" />
         <mxCell id="pAggx6uG9y8frOMZNR9_-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="XZGBF5oeoLYiBJc0UyCA-1" source="pAggx6uG9y8frOMZNR9_-0" target="pAggx6uG9y8frOMZNR9_-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="pAggx6uG9y8frOMZNR9_-0" value="start" style="ellipse;whiteSpace=wrap;html=1;" parent="XZGBF5oeoLYiBJc0UyCA-1" vertex="1">
+        <mxCell id="pAggx6uG9y8frOMZNR9_-0" value="start" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;gradientColor=#ffffff;" parent="XZGBF5oeoLYiBJc0UyCA-1" vertex="1">
           <mxGeometry x="368" y="70" width="112" height="60" as="geometry" />
         </mxCell>
         <mxCell id="pAggx6uG9y8frOMZNR9_-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="XZGBF5oeoLYiBJc0UyCA-1" source="pAggx6uG9y8frOMZNR9_-1" target="pAggx6uG9y8frOMZNR9_-3" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="pAggx6uG9y8frOMZNR9_-1" value="create ID for keep days" style="rounded=1;whiteSpace=wrap;html=1;" parent="XZGBF5oeoLYiBJc0UyCA-1" vertex="1">
+        <mxCell id="pAggx6uG9y8frOMZNR9_-1" value="create ID for keep days" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;gradientColor=#ffffff;" parent="XZGBF5oeoLYiBJc0UyCA-1" vertex="1">
           <mxGeometry x="364" y="166" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="1rKeE8jDUJPy6PBEQCen-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="XZGBF5oeoLYiBJc0UyCA-1" source="pAggx6uG9y8frOMZNR9_-3" edge="1">
@@ -522,59 +522,59 @@
             <mxPoint x="424" y="350" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="pAggx6uG9y8frOMZNR9_-3" value="import calendar" style="whiteSpace=wrap;html=1;rounded=1;" parent="XZGBF5oeoLYiBJc0UyCA-1" vertex="1">
+        <mxCell id="pAggx6uG9y8frOMZNR9_-3" value="import calendar" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#ffe6cc;strokeColor=#d79b00;gradientColor=#ffffff;" parent="XZGBF5oeoLYiBJc0UyCA-1" vertex="1">
           <mxGeometry x="364" y="260" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="iVa0To0hXv622Ewh31X9-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="XZGBF5oeoLYiBJc0UyCA-1" source="1GQUGtG5zCH4A_cvgXsE-0" target="iVa0To0hXv622Ewh31X9-0" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <UserObject label="calendar" link="data:page/id,OvSH62DoTymZ-rA0nLNE" id="1GQUGtG5zCH4A_cvgXsE-0">
-          <mxCell style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="XZGBF5oeoLYiBJc0UyCA-1" vertex="1">
+          <mxCell style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#e1d5e7;strokeColor=#9673a6;gradientColor=#ffffff;" parent="XZGBF5oeoLYiBJc0UyCA-1" vertex="1">
             <mxGeometry x="364" y="350" width="120" height="60" as="geometry" />
           </mxCell>
         </UserObject>
         <mxCell id="WPZZLm6oDA90oj6thQ_9-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="XZGBF5oeoLYiBJc0UyCA-1" source="iVa0To0hXv622Ewh31X9-0" target="WPZZLm6oDA90oj6thQ_9-0" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="iVa0To0hXv622Ewh31X9-0" value="user click button slide day" style="rounded=1;whiteSpace=wrap;html=1;" parent="XZGBF5oeoLYiBJc0UyCA-1" vertex="1">
+        <mxCell id="iVa0To0hXv622Ewh31X9-0" value="user click button slide day" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;gradientColor=#ffffff;" parent="XZGBF5oeoLYiBJc0UyCA-1" vertex="1">
           <mxGeometry x="364" y="440" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="Wm4qAkML32iS8SBIvG23-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="XZGBF5oeoLYiBJc0UyCA-1" source="WPZZLm6oDA90oj6thQ_9-0" target="Wm4qAkML32iS8SBIvG23-0" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="WPZZLm6oDA90oj6thQ_9-0" value="id(calender) == ID day" style="whiteSpace=wrap;html=1;rounded=1;" parent="XZGBF5oeoLYiBJc0UyCA-1" vertex="1">
+        <mxCell id="WPZZLm6oDA90oj6thQ_9-0" value="id(calender) == ID day" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#ffe6cc;strokeColor=#d79b00;gradientColor=#ffffff;" parent="XZGBF5oeoLYiBJc0UyCA-1" vertex="1">
           <mxGeometry x="364" y="530" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="Wm4qAkML32iS8SBIvG23-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="XZGBF5oeoLYiBJc0UyCA-1" source="Wm4qAkML32iS8SBIvG23-0" target="Wm4qAkML32iS8SBIvG23-2" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <UserObject label="show data on Main" link="data:page/id,lKxtB6D6K-3o9t04PIzB" id="Wm4qAkML32iS8SBIvG23-0">
-          <mxCell style="whiteSpace=wrap;html=1;rounded=1;" parent="XZGBF5oeoLYiBJc0UyCA-1" vertex="1">
+          <mxCell style="whiteSpace=wrap;html=1;rounded=1;fillColor=#f8cecc;strokeColor=#b85450;gradientColor=#ffffff;" parent="XZGBF5oeoLYiBJc0UyCA-1" vertex="1">
             <mxGeometry x="364" y="630" width="120" height="60" as="geometry" />
           </mxCell>
         </UserObject>
-        <mxCell id="Wm4qAkML32iS8SBIvG23-2" value="END" style="ellipse;whiteSpace=wrap;html=1;rounded=1;" parent="XZGBF5oeoLYiBJc0UyCA-1" vertex="1">
+        <mxCell id="Wm4qAkML32iS8SBIvG23-2" value="END" style="ellipse;whiteSpace=wrap;html=1;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;gradientColor=#ffffff;" parent="XZGBF5oeoLYiBJc0UyCA-1" vertex="1">
           <mxGeometry x="364" y="730" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="a5gWgNcX6J9hdcYbWf5L" name="function ID">
-    <mxGraphModel dx="2586" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2580" dy="913" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="ajFuSmVrddKeawb3s0bp-0" />
         <mxCell id="ajFuSmVrddKeawb3s0bp-1" parent="ajFuSmVrddKeawb3s0bp-0" />
         <mxCell id="45YzH0mEPgOOc5epRItd-0" value="ศึกษา dict&lt;br&gt;เพื่อใช้สร้าง ID in 1 day" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=40;fontColor=#000000;" parent="ajFuSmVrddKeawb3s0bp-1" vertex="1">
           <mxGeometry x="-20" y="20" width="410" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="NOZwkCuMdwZxfRpl8qJl-0" value="&lt;div&gt;&lt;font style=&quot;font-size: 24px&quot;&gt;ALL_ID = { &lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 24px&quot;&gt;ID_01:{ Date:xxx, Times:xxx, Important:xxx, Activity:xxx} , &lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 24px&quot;&gt;ID_XX:{XX} }&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="ajFuSmVrddKeawb3s0bp-1">
+        <mxCell id="NOZwkCuMdwZxfRpl8qJl-0" value="&lt;div&gt;&lt;font style=&quot;font-size: 24px&quot;&gt;ALL_ID = { &lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 24px&quot;&gt;ID_01:{ Date:xxx, Times:xxx, Important:xxx, Activity:xxx} , &lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 24px&quot;&gt;ID_XX:{XX} }&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="ajFuSmVrddKeawb3s0bp-1" vertex="1">
           <mxGeometry x="205" y="210" width="505" height="430" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="dnS288IebJ6qI9hPRBI6" name="function time">
-    <mxGraphModel dx="868" dy="450" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="9LmgN0R9KPMRFETjD8E9-0" />
         <mxCell id="9LmgN0R9KPMRFETjD8E9-1" parent="9LmgN0R9KPMRFETjD8E9-0" />
