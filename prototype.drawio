@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-12-04T15:50:55.445Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.67 Safari/537.36 Edg/87.0.664.52" etag="3wzo79fKr0UP175SByEE" version="13.10.9" type="github" pages="7">
+<mxfile host="app.diagrams.net" modified="2020-12-04T15:55:37.086Z" agent="5.0 (Windows)" etag="9ftmWPtTm9gt-APK_Aug" version="13.10.9" type="github" pages="7">
   <diagram id="lKxtB6D6K-3o9t04PIzB" name="Main">
-    <mxGraphModel dx="806" dy="522" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1038" dy="547" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="tMu2AY07BjXL__bY9_Zu-0" />
         <mxCell id="tMu2AY07BjXL__bY9_Zu-1" parent="tMu2AY07BjXL__bY9_Zu-0" />
@@ -80,9 +80,9 @@
         <mxCell id="vMo2tWiwMoscuH6namO--24" value="ปฏิทิน" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="tMu2AY07BjXL__bY9_Zu-1" vertex="1">
           <mxGeometry x="730" y="320" width="50" height="20" as="geometry" />
         </mxCell>
-        <UserObject label="prototype" link="https://docs.google.com/presentation/d/1d3XHjvYZ7uEMFIl7-A-bvF7QFhqmIkTJAoi2qcZ379o/edit#slide=id.gab385cffd9_0_4" id="vc7jFKjefhhxRNfemSIH-0">
+        <UserObject label="prototypeeeeeeee" link="https://docs.google.com/presentation/d/1d3XHjvYZ7uEMFIl7-A-bvF7QFhqmIkTJAoi2qcZ379o/edit#slide=id.gab385cffd9_0_4" id="vc7jFKjefhhxRNfemSIH-0">
           <mxCell style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=40;" parent="tMu2AY07BjXL__bY9_Zu-1" vertex="1">
-            <mxGeometry x="335" y="40" width="180" height="50" as="geometry" />
+            <mxGeometry x="255" y="40" width="340" height="50" as="geometry" />
           </mxCell>
         </UserObject>
         <mxCell id="QCDkMaE2va-9-akTrx5Y-0" value="หาเพิ่มเติม" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=16;fontColor=#FF3333;" parent="tMu2AY07BjXL__bY9_Zu-1" vertex="1">
@@ -97,7 +97,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="UJ4rUbwFmK2HccrdMvZs" name="function add data">
-    <mxGraphModel dx="806" dy="522" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1038" dy="547" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -240,7 +240,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="ApTdeAuse1WmLWojz0__" name="function check important">
-    <mxGraphModel dx="806" dy="522" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1038" dy="547" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="U7CppzZx9__meJYJCQPd-0" />
         <mxCell id="U7CppzZx9__meJYJCQPd-1" parent="U7CppzZx9__meJYJCQPd-0" />
@@ -329,7 +329,7 @@
         <mxCell id="vn8NXZQ-zpQzx2Ql7Aq0-35" value="เก็บค่า" style="rounded=1;whiteSpace=wrap;html=1;" parent="U7CppzZx9__meJYJCQPd-1" vertex="1">
           <mxGeometry x="365" y="500" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="QA_SCyS69L3zeWfnb9XE-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="U7CppzZx9__meJYJCQPd-1" source="OTkSkRib22NhCmWGFm10-0" target="QA_SCyS69L3zeWfnb9XE-0">
+        <mxCell id="QA_SCyS69L3zeWfnb9XE-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="U7CppzZx9__meJYJCQPd-1" source="OTkSkRib22NhCmWGFm10-0" target="QA_SCyS69L3zeWfnb9XE-0" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="OTkSkRib22NhCmWGFm10-0" value="return ค่า" style="rounded=1;whiteSpace=wrap;html=1;" parent="U7CppzZx9__meJYJCQPd-1" vertex="1">
@@ -340,10 +340,10 @@
             <mxGeometry x="365" y="800" width="120" height="80" as="geometry" />
           </mxCell>
         </UserObject>
-        <mxCell id="QA_SCyS69L3zeWfnb9XE-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="U7CppzZx9__meJYJCQPd-1" source="QA_SCyS69L3zeWfnb9XE-0" target="OTkSkRib22NhCmWGFm10-4">
+        <mxCell id="QA_SCyS69L3zeWfnb9XE-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="U7CppzZx9__meJYJCQPd-1" source="QA_SCyS69L3zeWfnb9XE-0" target="OTkSkRib22NhCmWGFm10-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="QA_SCyS69L3zeWfnb9XE-0" value="return ค่า" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="U7CppzZx9__meJYJCQPd-1">
+        <mxCell id="QA_SCyS69L3zeWfnb9XE-0" value="return ค่า" style="rounded=1;whiteSpace=wrap;html=1;" parent="U7CppzZx9__meJYJCQPd-1" vertex="1">
           <mxGeometry x="365.5" y="710" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
