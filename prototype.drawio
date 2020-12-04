@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-12-04T16:56:51.634Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36" etag="-bF8NQG9VPtIAD28x5Qn" version="13.10.9" type="github" pages="8">
+<mxfile host="app.diagrams.net" modified="2020-12-04T16:57:11.185Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36" etag="86ktJ0hRf0rouEdgMy0a" version="13.10.9" type="github" pages="8">
   <diagram id="lKxtB6D6K-3o9t04PIzB" name="Main">
     <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -491,12 +491,12 @@
     </mxGraphModel>
   </diagram>
   <diagram id="a5gWgNcX6J9hdcYbWf5L" name="function ID">
-    <mxGraphModel dx="3220" dy="1287" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2370" dy="1287" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="ajFuSmVrddKeawb3s0bp-0" />
         <mxCell id="ajFuSmVrddKeawb3s0bp-1" parent="ajFuSmVrddKeawb3s0bp-0" />
         <mxCell id="45YzH0mEPgOOc5epRItd-0" value="ศึกษา dict&lt;br&gt;เพื่อใช้สร้าง ID in 1 day" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=40;fontColor=#000000;" parent="ajFuSmVrddKeawb3s0bp-1" vertex="1">
-          <mxGeometry x="-20" y="20" width="410" height="100" as="geometry" />
+          <mxGeometry x="230" y="40" width="410" height="100" as="geometry" />
         </mxCell>
         <mxCell id="NOZwkCuMdwZxfRpl8qJl-0" value="&lt;div&gt;&lt;font style=&quot;font-size: 24px&quot;&gt;ALL_ID = { &lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 24px&quot;&gt;ID_01:{ Date:xxx, Times:xxx, Important:xxx, Activity:xxx} , &lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 24px&quot;&gt;ID_XX:{XX} }&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="ajFuSmVrddKeawb3s0bp-1" vertex="1">
           <mxGeometry x="205" y="210" width="505" height="430" as="geometry" />
