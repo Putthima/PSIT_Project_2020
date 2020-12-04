@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-12-04T16:17:38.130Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.67 Safari/537.36 Edg/87.0.664.52" etag="XJ_TRGHYjDoEAmTeoQdR" version="13.10.9" type="github" pages="8">
+<mxfile host="app.diagrams.net" modified="2020-12-04T16:18:28.855Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.67 Safari/537.36 Edg/87.0.664.52" etag="DIEoIqmLjvZvGjoGU-4w" version="13.10.9" type="github" pages="8">
   <diagram id="lKxtB6D6K-3o9t04PIzB" name="Main">
-    <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="806" dy="522" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="tMu2AY07BjXL__bY9_Zu-0" />
         <mxCell id="tMu2AY07BjXL__bY9_Zu-1" parent="tMu2AY07BjXL__bY9_Zu-0" />
@@ -100,7 +100,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="UJ4rUbwFmK2HccrdMvZs" name="function add data">
-    <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="806" dy="522" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -243,7 +243,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="ApTdeAuse1WmLWojz0__" name="function check important">
-    <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="806" dy="522" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="U7CppzZx9__meJYJCQPd-0" />
         <mxCell id="U7CppzZx9__meJYJCQPd-1" parent="U7CppzZx9__meJYJCQPd-0" />
@@ -353,7 +353,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="zMalPGHfQV55tFcWnKI-" name="function edit">
-    <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="806" dy="522" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="v0lEeN28OU5zNVM8-bEz-0" />
         <mxCell id="v0lEeN28OU5zNVM8-bEz-1" parent="v0lEeN28OU5zNVM8-bEz-0" />
@@ -489,7 +489,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="SI3W1f3K3y4VhuoGthXO" name="function slide day">
-    <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="806" dy="522" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="XZGBF5oeoLYiBJc0UyCA-0" />
         <mxCell id="XZGBF5oeoLYiBJc0UyCA-1" parent="XZGBF5oeoLYiBJc0UyCA-0" />
@@ -528,12 +528,12 @@
     </mxGraphModel>
   </diagram>
   <diagram id="a5gWgNcX6J9hdcYbWf5L" name="function ID">
-    <mxGraphModel dx="1656" dy="522" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="ajFuSmVrddKeawb3s0bp-0" />
         <mxCell id="ajFuSmVrddKeawb3s0bp-1" parent="ajFuSmVrddKeawb3s0bp-0" />
         <mxCell id="45YzH0mEPgOOc5epRItd-0" value="ศึกษา dict&lt;br&gt;เพื่อใช้สร้าง ID in 1 day" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=40;fontColor=#000000;" parent="ajFuSmVrddKeawb3s0bp-1" vertex="1">
-          <mxGeometry x="-20" y="40" width="410" height="100" as="geometry" />
+          <mxGeometry x="-20" y="20" width="410" height="100" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
@@ -546,8 +546,14 @@
         <mxCell id="2nG7fXOuAf2G-nqKw2f0-0" value="start" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="9LmgN0R9KPMRFETjD8E9-1">
           <mxGeometry x="375" y="40" width="85" height="50" as="geometry" />
         </mxCell>
+        <mxCell id="VEaYRN9PloJp4_zlgGAB-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="9LmgN0R9KPMRFETjD8E9-1" source="2nG7fXOuAf2G-nqKw2f0-1" target="VEaYRN9PloJp4_zlgGAB-0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="2nG7fXOuAf2G-nqKw2f0-1" value="import tie" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="9LmgN0R9KPMRFETjD8E9-1">
           <mxGeometry x="357.5" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="VEaYRN9PloJp4_zlgGAB-0" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="9LmgN0R9KPMRFETjD8E9-1">
+          <mxGeometry x="357.5" y="250" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
