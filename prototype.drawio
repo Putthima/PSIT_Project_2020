@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-12-04T16:33:49.065Z" agent="5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" etag="YtNm2xlYx5MgG39S9zxm" version="13.10.9" type="github" pages="8">
+<mxfile host="app.diagrams.net" modified="2020-12-04T16:36:15.631Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36" etag="YSMfkSn-zvvNu9hOXTMP" version="13.10.9" type="github" pages="8">
   <diagram id="lKxtB6D6K-3o9t04PIzB" name="Main">
-    <mxGraphModel dx="868" dy="450" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1038" dy="548" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="tMu2AY07BjXL__bY9_Zu-0" />
         <mxCell id="tMu2AY07BjXL__bY9_Zu-1" parent="tMu2AY07BjXL__bY9_Zu-0" />
@@ -137,7 +137,7 @@
             <mxGeometry x="315" y="420" width="120" height="60" as="geometry" />
           </mxCell>
         </UserObject>
-        <mxCell id="GxIgmwF6AEYl4qobg7O2-28" value="" style="endArrow=classic;html=1;" parent="1" edge="1">
+        <mxCell id="GxIgmwF6AEYl4qobg7O2-28" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="270" y="370" as="sourcePoint" />
             <mxPoint x="320" y="369.5" as="targetPoint" />
@@ -243,7 +243,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="ApTdeAuse1WmLWojz0__" name="function check important">
-    <mxGraphModel dx="868" dy="450" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="U7CppzZx9__meJYJCQPd-0" />
         <mxCell id="U7CppzZx9__meJYJCQPd-1" parent="U7CppzZx9__meJYJCQPd-0" />
@@ -355,8 +355,8 @@
         <mxCell id="_7pGHJa7b0wVQJP2x8iK-2" value="&lt;font color=&quot;#1a1a1a&quot;&gt;&lt;b&gt;สำคัญไม่รีบ&lt;br&gt;&lt;/b&gt;คือสำคัญแต่ยังพอเก็บไว้ทำทีหลังได้&lt;/font&gt;" style="text;html=1;strokeColor=#b85450;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#EA6B66;" parent="U7CppzZx9__meJYJCQPd-1" vertex="1">
           <mxGeometry x="40" y="550" width="220" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="_7pGHJa7b0wVQJP2x8iK-4" value="&lt;b&gt;&lt;font color=&quot;#ffffff&quot;&gt;ไม่รีบ ไม่สำคัญ&amp;nbsp; &amp;nbsp;&lt;br&gt;&lt;/font&gt;&lt;/b&gt;&lt;font color=&quot;#ffffff&quot;&gt;เป็นงานที่ควรทำในเวลาว่างจากทุกอย่างแล้ว ซึ่งจะไม่ส่งผลเสียกับงานอื่น ๆ&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#FFD966;strokeColor=#FFFF69;" parent="U7CppzZx9__meJYJCQPd-1" vertex="1">
-          <mxGeometry x="540" y="540" width="290" height="50" as="geometry" />
+        <mxCell id="_7pGHJa7b0wVQJP2x8iK-4" value="&lt;b&gt;&lt;font color=&quot;#ffffff&quot;&gt;ไม่รีบ ไม่สำคัญ&amp;nbsp; &amp;nbsp;&lt;br&gt;&lt;/font&gt;&lt;/b&gt;&lt;font color=&quot;#ffffff&quot;&gt;เป็นงานที่ควรทำในเวลาว่างจากทุกอย่างแล้ว ซึ่งจะไม่ส่งผลเสียกับงานอื่น ๆ&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeColor=#FFD966;fillColor=#FFD966;" parent="U7CppzZx9__meJYJCQPd-1" vertex="1">
+          <mxGeometry x="540" y="530" width="290" height="50" as="geometry" />
         </mxCell>
         <mxCell id="_7pGHJa7b0wVQJP2x8iK-5" value="&lt;b&gt;ไม่สำคัญแต่รีบ&amp;nbsp;&lt;br&gt;&lt;/b&gt;แต่รีบเป็นงานที่ให้คนอื่นทำแทนก็ได้&amp;nbsp;" style="text;html=1;strokeColor=#C73500;fillColor=#fa6800;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#ffffff;" parent="U7CppzZx9__meJYJCQPd-1" vertex="1">
           <mxGeometry x="540" y="480" width="190" height="40" as="geometry" />
@@ -365,7 +365,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="zMalPGHfQV55tFcWnKI-" name="function edit">
-    <mxGraphModel dx="868" dy="450" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1038" dy="548" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="v0lEeN28OU5zNVM8-bEz-0" />
         <mxCell id="v0lEeN28OU5zNVM8-bEz-1" parent="v0lEeN28OU5zNVM8-bEz-0" />
@@ -501,7 +501,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="SI3W1f3K3y4VhuoGthXO" name="function slide day">
-    <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1038" dy="548" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="XZGBF5oeoLYiBJc0UyCA-0" />
         <mxCell id="XZGBF5oeoLYiBJc0UyCA-1" parent="XZGBF5oeoLYiBJc0UyCA-0" />
@@ -560,14 +560,14 @@
     </mxGraphModel>
   </diagram>
   <diagram id="a5gWgNcX6J9hdcYbWf5L" name="function ID">
-    <mxGraphModel dx="2586" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2580" dy="913" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="ajFuSmVrddKeawb3s0bp-0" />
         <mxCell id="ajFuSmVrddKeawb3s0bp-1" parent="ajFuSmVrddKeawb3s0bp-0" />
         <mxCell id="45YzH0mEPgOOc5epRItd-0" value="ศึกษา dict&lt;br&gt;เพื่อใช้สร้าง ID in 1 day" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=40;fontColor=#000000;" parent="ajFuSmVrddKeawb3s0bp-1" vertex="1">
           <mxGeometry x="-20" y="20" width="410" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="NOZwkCuMdwZxfRpl8qJl-0" value="&lt;div&gt;&lt;font style=&quot;font-size: 24px&quot;&gt;ALL_ID = { &lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 24px&quot;&gt;ID_01:{ Date:xxx, Times:xxx, Important:xxx, Activity:xxx} , &lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 24px&quot;&gt;ID_XX:{XX} }&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="ajFuSmVrddKeawb3s0bp-1">
+        <mxCell id="NOZwkCuMdwZxfRpl8qJl-0" value="&lt;div&gt;&lt;font style=&quot;font-size: 24px&quot;&gt;ALL_ID = { &lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 24px&quot;&gt;ID_01:{ Date:xxx, Times:xxx, Important:xxx, Activity:xxx} , &lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 24px&quot;&gt;ID_XX:{XX} }&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="ajFuSmVrddKeawb3s0bp-1" vertex="1">
           <mxGeometry x="205" y="210" width="505" height="430" as="geometry" />
         </mxCell>
       </root>
