@@ -12,7 +12,7 @@ months.grid(row=1, column=1)
 
 
 def on_click(e):
-    print(years.get(), months.get())
+    print("Year=%s Month=%s" % (years.get(), months.get()))
 
 
 import tkinter as tk
