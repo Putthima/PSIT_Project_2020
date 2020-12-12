@@ -2,12 +2,11 @@
 # update ล่าสุด
 #
 #
-# เหน่งF
+# เหน่ง
 import time
 import calendar
 from tkinter import *
 from tkinter import ttk
-
 
 # ตรวจสอบเวลา
 class Setday():
@@ -30,11 +29,11 @@ class Setday():
 # show calendar into Class Main
 class Display(Frame):
     def show(self, year, month):
-        
-        #keep all elements of Label  
+
+        # keep all elements of Label
         labels = []
 
-        ## ถ้าเกิน 12 เดือน เปลี่ยนเป็นปีใหม่ เดือน ๅ
+        # ถ้าเกิน 12 เดือน เปลี่ยนเป็นปีใหม่ เดือน ๅ
         if month > 12:
             year += 1
             month -= 12
@@ -117,7 +116,7 @@ class Main(Frame):
         year = Setday.year
         month = Setday.month
 
-        #use class Display for show days in thismonth 
+        # use class Display for show days in thismonth
         display = Display.show(self, year, month)
         for day in display:
             day.grid()
@@ -137,11 +136,11 @@ class Backward(Frame):
     def __init__(self, parent, controller):
         Frame.__init__(self, parent)
 
-         # เก็บปี และเดือน
+        # เก็บปี และเดือน
         year = Setday.year
         month = Setday.month - 1
 
-        #use class Display for show days in thismonth 
+        # use class Display for show days in thismonth
         display = Display.show(self, year, month)
         for day in display:
             day.grid()
@@ -165,7 +164,7 @@ class Forward(Frame):
         year = Setday.year
         month = Setday.month + 1
 
-        #use class Display for show days in thismonth 
+        # use class Display for show days in thismonth
         display = Display.show(self, year, month)
         for day in display:
             day.grid()
@@ -185,8 +184,10 @@ class Forward(Frame):
                              command=lambda: controller.show_frame(Next))
         button2.grid(row=1, column=3, padx=10, pady=10)
 
-#plan not complete!!
-#i guess it is ok ~30%
+
+
+# plan not complete!!
+# i guess it is ok ~30%
 class Next(Frame):
     def __init__(self, parent, controller):
         Frame.__init__(self, parent)
@@ -195,7 +196,7 @@ class Next(Frame):
         year = Setday.year
         month = Setday.month + 2
 
-        #use class Display for show days in thismonth 
+        # use class Display for show days in thismonth
         display = Display.show(self, year, month)
         for day in display:
             day.grid()
