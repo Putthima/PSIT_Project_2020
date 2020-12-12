@@ -13,8 +13,5 @@ class App(Tk):
         top = Toplevel()
         top.minsize(500, 500)
 
-        
-
-
 run = App()
 run.mainloop()
