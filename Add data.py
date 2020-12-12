@@ -35,5 +35,5 @@ next_but.grid(row=1, column=5)
 btn = Button(root, text="Search", bg='salmon', width=11)
 btn.grid(row=2, column=4, columnspan=5)
 btn.bind('<Button-1>', on_click)
-
+#ส่วนยิบย่อย
 root.mainloop()
