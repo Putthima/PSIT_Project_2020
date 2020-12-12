@@ -1,5 +1,8 @@
 # จะแก้ไข main.py ให้ใช้ไฟล์ main_playground.py ก่อน
-# copy main.py แล้วเล่นตามสบาย
+# update ล่าสุด
+#
+#
+# เหน่ง
 
 
 import time
@@ -32,9 +35,23 @@ class Setday():
         show = mname[month-1]
         return show
 
+def openwindow():
+    #start function
+    top = Toplevel(bg="#FF5733")
+    top.title("choose your way")
+    top.geometry("400x600")
+
+    text = Label(top, text="My day")
+    text.pack(padx= 20, pady=20)
+
+    #ปุ่มเพิ่มข้อมูล
+    open_activity = Button(top, text="add", bg="#DAF7A6",
+                    command=lambda: create())
+    open_activity.pack(side="bottom")
+
 
 # new window for keep data of user
-def openwindow():
+def create():
 
     # get data into dict ~not complete
     def on_click(e):
@@ -208,10 +225,11 @@ class App(Tk):
         # เก็บ page
         self.frames = {}
 
+        color = "#E29B2F"
         # loop เปลี่ยน page
         for F in (Main, Backward, Forward, Next):
 
-            frame = F(container, self)
+            frame = F(container, self, color)
 
             self.frames[F] = frame
 
@@ -226,8 +244,8 @@ class App(Tk):
 
 
 class Main(Frame):
-    def __init__(self, parent, controller):
-        Frame.__init__(self, parent)
+    def __init__(self, parent, controller, color):
+        Frame.__init__(self, parent, bg=color)
 
         # เก็บปี และเดือน
         year = Setday.year
@@ -250,8 +268,8 @@ class Main(Frame):
 
 
 class Backward(Frame):
-    def __init__(self, parent, controller):
-        Frame.__init__(self, parent)
+    def __init__(self, parent, controller, color):
+        Frame.__init__(self, parent, bg=color)
 
         # เก็บปี และเดือน
         year = Setday.year
@@ -274,8 +292,8 @@ class Backward(Frame):
 
 
 class Forward(Frame):
-    def __init__(self, parent, controller):
-        Frame.__init__(self, parent)
+    def __init__(self, parent, controller, color):
+        Frame.__init__(self, parent, bg=color)
 
         # เก็บปี และเดือน
         year = Setday.year
@@ -305,8 +323,8 @@ class Forward(Frame):
 # plan not complete!!
 # i guess it is ok ~30%
 class Next(Frame):
-    def __init__(self, parent, controller):
-        Frame.__init__(self, parent)
+    def __init__(self, parent, controller, color):
+        Frame.__init__(self, parent, bg=color)
 
         # เก็บปี และเดือน
         year = Setday.year
