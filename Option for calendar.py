@@ -2,12 +2,12 @@ from tkinter import *
 from tkinter import ttk
 root = Tk()
 root.option_add("*Font", "consolas 20")
-years = ttk.Combobox(root, values=list(range(2025, 2014, -1)))
-# years.current(5)
+years = ttk.Combobox(root, values=list(range(2025, 2014, -1)),state="readonly")
+years.current(5)
 years.grid(row=1, column=0)
 
-months = ttk.Combobox(root, values=list(range(1, 13)))
-# months.current(0)
+months = ttk.Combobox(root, values=list(range(1, 13)),state="readonly")
+months.current(0)
 months.grid(row=1, column=1)
 
 
