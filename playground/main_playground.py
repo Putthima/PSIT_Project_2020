@@ -1,5 +1,7 @@
 # จะแก้ไข main.py ให้ใช้ไฟล์ main_playground.py ก่อน
 # copy main.py แล้วเล่นตามสบาย
+
+
 import time
 import calendar
 from tkinter import *
@@ -14,6 +16,13 @@ class Setday():
     year = timer.tm_year
     # แปลงเป็นเดือน
     month = timer.tm_mon
+    # แปลงเป็นวัน
+    day = timer.tm_mday
+    # แปลงเป็นชัวโมง
+    hour = timer.tm_hour
+    # แปลงเป็นนาที
+    mins = timer.tm_min
+
 
     #ตรวจสอบชื่อเดือน == เลข
     def checkmonth(self, month):
@@ -31,11 +40,12 @@ def openwindow():
     def on_click(e):
 
         # print("Your Activity is:%s\nPriority:%s\nDay:%s\nMonth: \
-        #     %s\nYear:%s\nTime:%s:%s" % (tv_atv.get(), v_important.get(), \
+        #     %s\nYear:%s\nTime:%s:%s" % (value_activity.get(), value_important.get(), \
         #         days.get(), months.get(), years.get(), hours.get(), minutes.get()))
 
-        keep = {'Activity': tv_atv.get(),
-                'Priority': v_important.get(),
+        #keep data with dict
+        keep = {'Activity': value_activity.get(),
+                'Priority': value_important.get(),
                 'Day': days.get(),
                 'Month': months.get(),
                 'Year': years.get(),
@@ -48,78 +58,86 @@ def openwindow():
     top = Toplevel()
     top.title("create activity")
 
-    v_important = StringVar()
-    v_important.set("4")
+    #ชื่อกิจกรรม
+    frame_activity = Frame(top)
+    frame_activity.grid(row=0, column=0, sticky=W)
 
-    f1 = Frame(top)
-    f1.grid(row=0, column=0, sticky=W)
+    value_activity = StringVar()
 
-    f2 = Frame(top)
-    f2.grid(row=1, column=0, sticky=W)
+    #text activity
+    Label(frame_activity, text="Activity : ").pack(side=LEFT)
 
-    f3 = Frame(top)
-    f3.grid(row=2, column=0, sticky=W)
+    #form activity
+    Entry(frame_activity, width=25, textvariable=value_activity).pack(side=LEFT)
 
-    f4 = Frame(top)
-    f4.grid(row=5, column=0, sticky=W)
+    #แสดงหัวข้อความสำคัญ
+    frame_text = Frame(top)
+    frame_text.grid(row=1, column=0, sticky=W)
 
-    tv_atv = StringVar()
-    Label(f1, text="Activity : ").pack(side=LEFT)
+    #text important
+    Label(frame_text, text="Important Level (Choose one)").pack()
+    
+    #เก็บค่าความสำคัญ
+    frame_im = Frame(top)
+    frame_im.grid(row=2, column=0, sticky=W)
 
-    activitys = Entry(f1, width=25, textvariable=tv_atv)
-    activitys.pack(side=LEFT)
+    value_important = StringVar()
+    value_important.set("4")
 
-    Label(f2, text="Important Level (Choose one)").pack()
+    important = ["Important And Hurry",
+                "Important But Slowly",
+                "Unimportant and Hurry",
+                "Unimportant But Slowly"
+    ]
 
-    Radiobutton(f3, text="Important And Hurry", value="Important And Hurry", variable=v_important, indicatoron=False, ).grid(
-        row=2, column=0, sticky=W)
+    #show choice of important
+    for i in range(len(important)):
+        Radiobutton(frame_im, text=important[i], value=important[i],
+        variable=value_important, indicatoron=False).grid(row=2, column=0+i, sticky=W)
 
-    Radiobutton(f3, text="Important But Slowly", value="Important But Slowly", variable=v_important, indicatoron=False).grid(
-        row=2, column=1, sticky=W)
+    #text Date and Time 
+    Label(frame_im, text="Date and Times").grid(row=3, column=0, sticky=W)
 
-    Radiobutton(f3, text="Unimportant and Hurry", value="Unimportant and Hurry", variable=v_important, indicatoron=False).grid(
-        row=2, column=2, sticky=W)
+    #เก็บค่าวันและเวลา
+    frame_date = Frame(top)
+    frame_date.grid(row=5, column=0, sticky=W)
 
-    Radiobutton(f3, text="Unimportant But Slowly", value="Unimportant But Slowly", variable=v_important, indicatoron=False).grid(
-        row=2, column=3, sticky=W)
-
-    Label(f3, text="Date and Times").grid(row=3, column=0, sticky=W)
-
+    #กรอกเป็นวัน
     daylist = ['Day'] + list(range(1, 32))
-    days = ttk.Combobox(f4, values=daylist, width=4, state="readonly")
-    days.set("Day")
+    days = ttk.Combobox(frame_date, values=daylist, width=4, state="readonly")
+    days.set(Setday.day)
     days.grid(row=4, column=0)
 
+    #กรอกเป็นเดือน
     monthlist = ['Month'] + list(range(1, 13))
-    months = ttk.Combobox(f4, values=monthlist, width=6, state="readonly")
-    months.set("Month")
-    months.current(0)
+    months = ttk.Combobox(frame_date, values=monthlist, width=6, state="readonly")
+    months.set(Setday.month)
     months.grid(row=4, column=1)
 
+    #กรอกเป็นปี
     yearslist = ['Year'] + list(range(2025, 2014, -1))
-    years = ttk.Combobox(f4, values=yearslist, width=5, state="readonly")
-    years.set("Year")
-    years.current(0)
+    years = ttk.Combobox(frame_date, values=yearslist, width=5, state="readonly")
+    years.set(Setday.year)
     years.grid(row=4, column=2)
 
-    hours = ttk.Combobox(f4, values=list(range(00, 24)), state="readonly")
-    hours.current(0)
-    hours.set("hr.")
+    #กรอกเป็นชัวโมง
+    hours = ttk.Combobox(frame_date, values=list(range(00, 24)), state="readonly")
+    hours.set(Setday.hour)
     hours.grid(row=5, column=0)
 
-    minutes = ttk.Combobox(f4, values=list(range(00, 60)), state="readonly")
-    minutes.current(0)
-    minutes.set("min.")
+    #กรอกเป็นนาที
+    minutes = ttk.Combobox(frame_date, values=list(range(00, 60)), state="readonly")
+    minutes.set(Setday.mins)
     minutes.grid(row=5, column=1)
 
-    close = Button(f4, text="Cancel", command=top.destroy)
-    close.grid(row=6, column=0)
-
-    submit = Button(f4, text="Submit")
+    #ยืนยันเก็บข้อมูล
+    submit = Button(frame_date, text="Submit")
     submit.grid(row=6, column=1)
     submit.bind('<Button-1>', on_click)
 
-    
+    #ปิดแท็บ
+    close = Button(frame_date, text="Cancel", command=top.destroy)
+    close.grid(row=6, column=0)
 
 
 # show calendar into Class Main
@@ -283,10 +301,9 @@ class Forward(Frame):
                              command=lambda: controller.show_frame(Next))
         button2.grid(row=1, column=3, padx=10, pady=10)
 
+
 # plan not complete!!
 # i guess it is ok ~30%
-
-
 class Next(Frame):
     def __init__(self, parent, controller):
         Frame.__init__(self, parent)
