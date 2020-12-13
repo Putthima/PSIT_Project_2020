@@ -11,12 +11,13 @@ from functools import partial
 
 # พื้นหลัง
 class Wallpaper():
+
+    
     def background(self):
         canvas = Canvas(self, width=1000,  height=563)
         self.photo = PhotoImage(file='image/bg.png')
         canvas.create_image(500, 280, image=self.photo)
         return canvas
-
 
 # ตรวจสอบเวลา
 class Setday():
@@ -44,23 +45,25 @@ class Setday():
 
 
 # เปิดหน้าต่างใหม่
-def openwindow(day):
+def openwindow(keepdate):
     # start function
     top = Toplevel(bg="#3d405b")  # พื้นหลังหน้าAdd
     top.title("Create your plan")
     top.geometry("400x600")
 
-    text = Label(top, text=day, fg="#F4D35E", bg='#3d405b')
+    text = Label(top, text=keepdate, fg="#F4D35E", bg='#3d405b')
     text.pack(padx=20, pady=20)
 
+    #เก็บค่าตัวแปร ส่งไป create()
+    datadate = partial(create, keepdate)
+
     # ปุ่มเพิ่มข้อมูล
-    open_activity = Button(top, text="add", bg="#e07a5f",
-                           command=lambda: create(day))
-    open_activity.pack(side="bottom")
+    open_activity = Button(top, text="add", command= datadate)
+    open_activity.pack(side="bottom", pady=10)
 
 
 # new window for keep data of user
-def create(day):
+def create(datadate):
 
     # get data into dict ~not complete
     def on_click(e):
@@ -136,27 +139,24 @@ def create(day):
 
     # กรอกเป็นวัน
     daylist = ['Day'] + list(range(1, 32))
+    Label(frame_date, text="Day").grid(row=4, column=0)
     days = ttk.Combobox(frame_date, values=daylist, width=4, state="readonly")
-    days.set(Setday.day)
-    days.grid(row=4, column=0)
+    days.set(datadate.day)
+    days.grid(row=4, column=1)
 
     # กรอกเป็นเดือน
     monthlist = ['Month'] + list(range(1, 13))
-    months = ttk.Combobox(frame_date,
-                          values=monthlist,
-                          width=6,
-                          state="readonly")
-    months.set(Setday.month)
-    months.grid(row=4, column=1)
+    Label(frame_date, text="Month").grid(row=4, column=2)
+    months = ttk.Combobox(frame_date, values=monthlist, width=6, state="readonly")
+    months.set(datadate.month)
+    months.grid(row=4, column=3)
 
     # กรอกเป็นปี
     yearslist = ['Year'] + list(range(2025, 2014, -1))
-    years = ttk.Combobox(frame_date,
-                         values=yearslist,
-                         width=5,
-                         state="readonly")
-    years.set(Setday.year)
-    years.grid(row=4, column=2)
+    Label(frame_date, text="Year").grid(row=4, column=4)
+    years = ttk.Combobox(frame_date, values=yearslist, width=5, state="readonly")
+    years.set(datadate.year)
+    years.grid(row=4, column=5)
 
     # กรอกเป็นชัวโมง
     hours = ttk.Combobox(frame_date,
@@ -218,12 +218,12 @@ class Display(Frame):
         for r, week in enumerate(dates):
             for c, date in enumerate(week):
 
-                #เก็บค่าวัน
-                day = partial(openwindow, date)
+                #เก็บค่า วัน เดือน ปี ส่งไป openwindow()
+                keepdate = partial(openwindow, date)
                 
                 # สร้างช่องวัน
                 label = Button(self, text=date.strftime('%d'),
-                               command= day)
+                               command= keepdate)
                 label.grid(row=r+3, column=c+1, pady=7)
 
                 # เช็ควันที่ไม่อยู่ในเดือนนี้
