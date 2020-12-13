@@ -1,20 +1,13 @@
 # จะแก้ไข main.py ให้ใช้ไฟล์ main_playground.py ก่อน
 # update ล่าสุด
-
+#
+#
+# เหน่ง
 
 import time
 import calendar
 from tkinter import *
 from tkinter import ttk
-
-
-# พื้นหลัง
-class Wallpaper():
-    def background(self):
-        canvas = Canvas(self, width=1000,  height=563)
-        self.photo = PhotoImage(file='image/bg.png')
-        canvas.create_image(500, 280, image=self.photo)
-        return canvas
 
 
 # ตรวจสอบเวลา
@@ -33,27 +26,29 @@ class Setday():
     mins = timer.tm_min
 
     #ตรวจสอบชื่อเดือน == เลข
-
     def checkmonth(self, month):
-        mname = ["January", "February", "March", "April", "May",
-                 "June", "July", "August", "September", "October", "November", "December"]
+        mname = [
+            "January", "February", "March", "April", "May", "June", "July",
+            "August", "September", "October", "November", "December"
+        ]
 
-        show = mname[month-1]
+        show = mname[month - 1]
         return show
 
 
-# เปิดหน้าต่างใหม่
 def openwindow():
-    # start function
-    top = Toplevel(bg="#3d405b")  # พื้นหลังหน้าAdd
+    #start function
+    top = Toplevel(bg="#3d405b")  #พื้นหลังหน้าAdd
     top.title("Create your plan")
     top.geometry("400x600")
 
     text = Label(top, text="My day", fg="#F4D35E", bg='#3d405b')
     text.pack(padx=20, pady=20)
 
-    # ปุ่มเพิ่มข้อมูล
-    open_activity = Button(top, text="add", bg="#e07a5f",
+    #ปุ่มเพิ่มข้อมูล
+    open_activity = Button(top,
+                           text="add",
+                           bg="#e07a5f",
                            command=lambda: create())
     open_activity.pack(side="bottom")
 
@@ -68,7 +63,7 @@ def create():
         #     %s\nYear:%s\nTime:%s:%s" % (value_activity.get(), value_important.get(), \
         #         days.get(), months.get(), years.get(), hours.get(), minutes.get()))
 
-        # keep data with dict
+        #keep data with dict
         keep = {
             'Activity': value_activity.get(),
             'Priority': value_important.get(),
@@ -80,66 +75,69 @@ def create():
 
         print(keep)
 
-    # start function
+    #start function
     top = Toplevel()
     top.title("Create activity")
 
-    # ชื่อกิจกรรม
+    #ชื่อกิจกรรม
     frame_activity = Frame(top)
     frame_activity.grid(row=0, column=0, sticky=W)
 
     value_activity = StringVar()
 
-    # text activity
+    #text activity
     Label(frame_activity, text="Activity : ").pack(side=LEFT)
 
-    # form activity
+    #form activity
     Entry(frame_activity, width=25,
           textvariable=value_activity).pack(side=LEFT)
 
-    # แสดงหัวข้อความสำคัญ
+    #แสดงหัวข้อความสำคัญ
     frame_text = Frame(top)
     frame_text.grid(row=1, column=0, sticky=W)
 
-    # text important
+    #text important
     Label(frame_text, text="Important Level (Choose one)").pack()
 
-    # เก็บค่าความสำคัญ
+    #เก็บค่าความสำคัญ
     frame_im = Frame(top)
     frame_im.grid(row=2, column=0, sticky=W)
 
     value_important = StringVar()
     value_important.set("4")
 
-    important = ["Important And Hurry",
-                "Important But Slowly",
-                "Unimportant and Hurry",
-                "Unimportant But Slowly"
+    important = [
+        "Important And Hurry", "Important But Slowly", "Unimportant and Hurry",
+        "Unimportant But Slowly"
     ]
-
     color = ["red3", "red2", "orange", "lawn green"]
-    
-    # show choice of important
+    #show choice of important
     item_per_row = 2
     for i in range(len(important)):
-        Radiobutton(frame_im, text=important[i], value=important[i], bg=color[i],
-                    variable=value_important, indicatoron=False).grid(
-                        row=(i // item_per_row) + 2, column=i % item_per_row, sticky=W
-        )
+        Radiobutton(frame_im,
+                    text=important[i],
+                    value=important[i],
+                    bg=color[i],
+                    variable=value_important,
+                    indicatoron=False).grid(
+                        row=(i // item_per_row) + 2,
+                        column=i % item_per_row,
+                        sticky=W,
+                    )
 
     Label(frame_im, text="Date and Times").grid(row=4, column=0, sticky=W)
 
-    # เก็บค่าวันและเวลา
+    #เก็บค่าวันและเวลา
     frame_date = Frame(top)
     frame_date.grid(row=5, column=0, sticky=W)
 
-    # กรอกเป็นวัน
+    #กรอกเป็นวัน
     daylist = ['Day'] + list(range(1, 32))
     days = ttk.Combobox(frame_date, values=daylist, width=4, state="readonly")
     days.set(Setday.day)
     days.grid(row=4, column=0)
 
-    # กรอกเป็นเดือน
+    #กรอกเป็นเดือน
     monthlist = ['Month'] + list(range(1, 13))
     months = ttk.Combobox(frame_date,
                           values=monthlist,
@@ -148,7 +146,7 @@ def create():
     months.set(Setday.month)
     months.grid(row=4, column=1)
 
-    # กรอกเป็นปี
+    #กรอกเป็นปี
     yearslist = ['Year'] + list(range(2025, 2014, -1))
     years = ttk.Combobox(frame_date,
                          values=yearslist,
@@ -157,26 +155,26 @@ def create():
     years.set(Setday.year)
     years.grid(row=4, column=2)
 
-    # กรอกเป็นชัวโมง
+    #กรอกเป็นชัวโมง
     hours = ttk.Combobox(frame_date,
                          values=list(range(00, 24)),
                          state="readonly")
     hours.set(Setday.hour)
     hours.grid(row=5, column=0)
 
-    # กรอกเป็นนาที
+    #กรอกเป็นนาที
     minutes = ttk.Combobox(frame_date,
                            values=list(range(00, 60)),
                            state="readonly")
     minutes.set(Setday.mins)
     minutes.grid(row=5, column=1)
 
-    # ยืนยันเก็บข้อมูล
+    #ยืนยันเก็บข้อมูล
     submit = Button(frame_date, text="Submit", bg="#81b29a")
     submit.grid(row=6, column=1)
     submit.bind('<Button-1>', on_click)
 
-    # ปิดแท็บ
+    #ปิดแท็บ
     close = Button(frame_date,
                    text="Cancel",
                    command=top.destroy,
@@ -187,10 +185,6 @@ def create():
 # show calendar into Class Main
 class Display(Frame):
     def show(self, year, month):
-
-        # background
-        background = Wallpaper.background(self)
-        background.place(x=0, y=0, relwidth=1, relheight=1)
 
         # keep all elements of Label
         labels = []
@@ -206,9 +200,10 @@ class Display(Frame):
         labels.append(show_month)
 
         # สร้าง head วัน จ-อา
-        for i, j in enumerate(["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]):
+        for i, j in enumerate(
+            ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]):
             show_day = ttk.Label(self, text=j)
-            show_day.grid(row=2, column=i+1, padx=10, pady=10)
+            show_day.grid(row=2, column=i + 1, padx=10, pady=10)
             labels.append(show_day)
 
         # สร้างวันที่ของเดือนนี้
@@ -218,16 +213,17 @@ class Display(Frame):
             for c, date in enumerate(week):
 
                 # สร้างช่องวัน
-                label = Button(self, text=date.strftime('%d'),
+                label = Button(self,
+                               text=date.strftime('%d'),
                                command=lambda: openwindow())
-                label.grid(row=r+3, column=c+1, pady=7)
+                label.grid(row=r + 3, column=c + 1, pady=7)
 
                 # เช็ควันที่ไม่อยู่ในเดือนนี้
                 if date.month != month:
-                    label['bg'] = 'Yellow'
+                    label['bg'] = 'gray75'  #สีเดือนที่ไม่เกี่ยวข้อง
                     label["state"] = "disabled"
                 if c == 6:
-                    label['fg'] = 'Black'
+                    label['fg'] = 'black'
                 labels.append(label)
 
         return labels
@@ -246,10 +242,6 @@ class App(Tk):
         self.title("Inminder")
         self.option_add("*Font", "consulas 20")
 
-        # ขนาดของ window
-        self.minsize(1000, 563)
-        self.maxsize(1000, 563)
-
         # สร้าง container
         container = Frame(self)
         container.pack(side="top", fill="both", expand=True)
@@ -260,10 +252,11 @@ class App(Tk):
         # เก็บ page
         self.frames = {}
 
+        color = "#E29B2F"
         # loop เปลี่ยน page
         for F in (Main, Backward, Forward, Next):
 
-            frame = F(container, self)
+            frame = F(container, self, color)
 
             self.frames[F] = frame
 
@@ -278,8 +271,8 @@ class App(Tk):
 
 
 class Main(Frame):
-    def __init__(self, parent, controller):
-        Frame.__init__(self, parent)
+    def __init__(self, parent, controller, color):
+        Frame.__init__(self, parent, bg=color)
 
         # เก็บปี และเดือน
         year = Setday.year
@@ -291,19 +284,21 @@ class Main(Frame):
             day.grid()
 
         # กดเปลี่ยน page to Backward
-        button1 = ttk.Button(self, text="Backward",
+        button1 = ttk.Button(self,
+                             text="Backward",
                              command=lambda: controller.show_frame(Backward))
         button1.grid(row=1, column=1, padx=10, pady=10)
 
         # กดเปลี่ยน page to Forward
-        button2 = ttk.Button(self, text="Forward",
+        button2 = ttk.Button(self,
+                             text="Forward",
                              command=lambda: controller.show_frame(Forward))
         button2.grid(row=1, column=2, padx=10, pady=10)
 
 
 class Backward(Frame):
-    def __init__(self, parent, controller):
-        Frame.__init__(self, parent)
+    def __init__(self, parent, controller, color):
+        Frame.__init__(self, parent, bg=color)
 
         # เก็บปี และเดือน
         year = Setday.year
@@ -315,19 +310,21 @@ class Backward(Frame):
             day.grid()
 
         # กดเปลี่ยน page to Main
-        button1 = ttk.Button(self, text="Main",
+        button1 = ttk.Button(self,
+                             text="Main",
                              command=lambda: controller.show_frame(Main))
         button1.grid(row=1, column=1, padx=10, pady=10)
 
         # กดเปลี่ยน page to Forward
-        button2 = ttk.Button(self, text="Forward",
+        button2 = ttk.Button(self,
+                             text="Forward",
                              command=lambda: controller.show_frame(Forward))
         button2.grid(row=1, column=2, padx=10, pady=10)
 
 
 class Forward(Frame):
-    def __init__(self, parent, controller):
-        Frame.__init__(self, parent)
+    def __init__(self, parent, controller, color):
+        Frame.__init__(self, parent, bg=color)
 
         # เก็บปี และเดือน
         year = Setday.year
@@ -339,17 +336,20 @@ class Forward(Frame):
             day.grid()
 
         # กดเปลี่ยน page to Backward
-        button1 = ttk.Button(self, text="Backward",
+        button1 = ttk.Button(self,
+                             text="Backward",
                              command=lambda: controller.show_frame(Backward))
         button1.grid(row=1, column=1, padx=10, pady=10)
 
         # กดเปลี่ยน page to Main
-        button2 = ttk.Button(self, text="Main",
+        button2 = ttk.Button(self,
+                             text="Main",
                              command=lambda: controller.show_frame(Main))
         button2.grid(row=1, column=2, padx=10, pady=10)
 
         # กดเปลี่ยน page to next
-        button2 = ttk.Button(self, text="Next",
+        button2 = ttk.Button(self,
+                             text="Next",
                              command=lambda: controller.show_frame(Next))
         button2.grid(row=1, column=3, padx=10, pady=10)
 
@@ -357,8 +357,8 @@ class Forward(Frame):
 # plan not complete!!
 # i guess it is ok ~30%
 class Next(Frame):
-    def __init__(self, parent, controller):
-        Frame.__init__(self, parent)
+    def __init__(self, parent, controller, color):
+        Frame.__init__(self, parent, bg=color)
 
         # เก็บปี และเดือน
         year = Setday.year
@@ -370,12 +370,14 @@ class Next(Frame):
             day.grid()
 
         # กดเปลี่ยน page to Backward
-        button1 = ttk.Button(self, text="Main",
+        button1 = ttk.Button(self,
+                             text="Main",
                              command=lambda: controller.show_frame(Main))
         button1.grid(row=1, column=1, padx=10, pady=10)
 
         # กดเปลี่ยน page to Forward
-        button2 = ttk.Button(self, text="Forward",
+        button2 = ttk.Button(self,
+                             text="Forward",
                              command=lambda: controller.show_frame(Forward))
         button2.grid(row=1, column=2, padx=10, pady=10)
 

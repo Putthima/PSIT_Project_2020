@@ -7,10 +7,12 @@ import calendar
 from tkinter import *
 from tkinter import ttk
 
+
+# พื้นหลัง
 class Wallpaper():
     def background(self):
         canvas = Canvas(self, width=1000,  height=563)
-        self.photo = PhotoImage(file = 'image/bg.png')
+        self.photo = PhotoImage(file='image/bg.png')
         canvas.create_image(500, 280, image=self.photo)
         return canvas
 
@@ -30,8 +32,8 @@ class Setday():
     # แปลงเป็นนาที
     mins = timer.tm_min
 
-
     #ตรวจสอบชื่อเดือน == เลข
+
     def checkmonth(self, month):
         mname = ["January", "February", "March", "April", "May",
                  "June", "July", "August", "September", "October", "November", "December"]
@@ -40,18 +42,19 @@ class Setday():
         return show
 
 
+# เปิดหน้าต่างใหม่
 def openwindow():
-    #start function
-    top = Toplevel(bg="#FF5733")
-    top.title("choose your way")
+    # start function
+    top = Toplevel(bg="#3d405b")  # พื้นหลังหน้าAdd
+    top.title("Create your plan")
     top.geometry("400x600")
 
-    text = Label(top, text="My day")
-    text.pack(padx= 20, pady=20)
+    text = Label(top, text="My day", fg="#F4D35E", bg='#3d405b')
+    text.pack(padx=20, pady=20)
 
-    #ปุ่มเพิ่มข้อมูล
-    open_activity = Button(top, text="add", bg="#DAF7A6",
-                    command=lambda: create())
+    # ปุ่มเพิ่มข้อมูล
+    open_activity = Button(top, text="add", bg="#e07a5f",
+                           command=lambda: create())
     open_activity.pack(side="bottom")
 
 
@@ -65,41 +68,43 @@ def create():
         #     %s\nYear:%s\nTime:%s:%s" % (value_activity.get(), value_important.get(), \
         #         days.get(), months.get(), years.get(), hours.get(), minutes.get()))
 
-        #keep data with dict
-        keep = {'Activity': value_activity.get(),
-                'Priority': value_important.get(),
-                'Day': days.get(),
-                'Month': months.get(),
-                'Year': years.get(),
-                'Time': [hours.get(), minutes.get()]
-                }
+        # keep data with dict
+        keep = {
+            'Activity': value_activity.get(),
+            'Priority': value_important.get(),
+            'Day': days.get(),
+            'Month': months.get(),
+            'Year': years.get(),
+            'Time': [hours.get(), minutes.get()]
+        }
 
         print(keep)
 
-    #start function
+    # start function
     top = Toplevel()
-    top.title("create activity")
+    top.title("Create activity")
 
-    #ชื่อกิจกรรม
+    # ชื่อกิจกรรม
     frame_activity = Frame(top)
     frame_activity.grid(row=0, column=0, sticky=W)
 
     value_activity = StringVar()
 
-    #text activity
+    # text activity
     Label(frame_activity, text="Activity : ").pack(side=LEFT)
 
-    #form activity
-    Entry(frame_activity, width=25, textvariable=value_activity).pack(side=LEFT)
+    # form activity
+    Entry(frame_activity, width=25,
+          textvariable=value_activity).pack(side=LEFT)
 
-    #แสดงหัวข้อความสำคัญ
+    # แสดงหัวข้อความสำคัญ
     frame_text = Frame(top)
     frame_text.grid(row=1, column=0, sticky=W)
 
-    #text important
+    # text important
     Label(frame_text, text="Important Level (Choose one)").pack()
-    
-    #เก็บค่าความสำคัญ
+
+    # เก็บค่าความสำคัญ
     frame_im = Frame(top)
     frame_im.grid(row=2, column=0, sticky=W)
 
@@ -112,53 +117,70 @@ def create():
                 "Unimportant But Slowly"
     ]
 
-    #show choice of important
+    color = ["red3", "red2", "orange", "lawn green"]
+    
+    # show choice of important
+    item_per_row = 2
     for i in range(len(important)):
-        Radiobutton(frame_im, text=important[i], value=important[i],
-        variable=value_important, indicatoron=False).grid(row=2, column=0+i, sticky=W)
+        Radiobutton(frame_im, text=important[i], value=important[i], bg=color[i],
+                    variable=value_important, indicatoron=False).grid(
+                        row=(i // item_per_row) + 2, column=i % item_per_row, sticky=W
+        )
 
-    #text Date and Time 
-    Label(frame_im, text="Date and Times").grid(row=3, column=0, sticky=W)
+    Label(frame_im, text="Date and Times").grid(row=4, column=0, sticky=W)
 
-    #เก็บค่าวันและเวลา
+    # เก็บค่าวันและเวลา
     frame_date = Frame(top)
     frame_date.grid(row=5, column=0, sticky=W)
 
-    #กรอกเป็นวัน
+    # กรอกเป็นวัน
     daylist = ['Day'] + list(range(1, 32))
     days = ttk.Combobox(frame_date, values=daylist, width=4, state="readonly")
     days.set(Setday.day)
     days.grid(row=4, column=0)
 
-    #กรอกเป็นเดือน
+    # กรอกเป็นเดือน
     monthlist = ['Month'] + list(range(1, 13))
-    months = ttk.Combobox(frame_date, values=monthlist, width=6, state="readonly")
+    months = ttk.Combobox(frame_date,
+                          values=monthlist,
+                          width=6,
+                          state="readonly")
     months.set(Setday.month)
     months.grid(row=4, column=1)
 
-    #กรอกเป็นปี
+    # กรอกเป็นปี
     yearslist = ['Year'] + list(range(2025, 2014, -1))
-    years = ttk.Combobox(frame_date, values=yearslist, width=5, state="readonly")
+    years = ttk.Combobox(frame_date,
+                         values=yearslist,
+                         width=5,
+                         state="readonly")
     years.set(Setday.year)
     years.grid(row=4, column=2)
 
-    #กรอกเป็นชัวโมง
-    hours = ttk.Combobox(frame_date, values=list(range(00, 24)), state="readonly")
+    # กรอกเป็นชัวโมง
+    hours = ttk.Combobox(frame_date,
+                         values=list(range(00, 24)),
+                         state="readonly")
     hours.set(Setday.hour)
     hours.grid(row=5, column=0)
 
-    #กรอกเป็นนาที
-    minutes = ttk.Combobox(frame_date, values=list(range(00, 60)), state="readonly")
+    # กรอกเป็นนาที
+    minutes = ttk.Combobox(frame_date,
+                           values=list(range(00, 60)),
+                           state="readonly")
     minutes.set(Setday.mins)
     minutes.grid(row=5, column=1)
 
-    #ยืนยันเก็บข้อมูล
-    submit = Button(frame_date, text="Submit")
+    # ยืนยันเก็บข้อมูล
+    submit = Button(frame_date, text="Submit", bg="#81b29a")
     submit.grid(row=6, column=1)
     submit.bind('<Button-1>', on_click)
 
-    #ปิดแท็บ
-    close = Button(frame_date, text="Cancel", command=top.destroy)
+    # ปิดแท็บ
+    close = Button(frame_date,
+                   text="Cancel",
+                   command=top.destroy,
+                   bg="#e07a5f")
     close.grid(row=6, column=0)
 
 
@@ -166,7 +188,7 @@ def create():
 class Display(Frame):
     def show(self, year, month):
 
-        # background 
+        # background
         background = Wallpaper.background(self)
         background.place(x=0, y=0, relwidth=1, relheight=1)
 
@@ -237,7 +259,6 @@ class App(Tk):
 
         # เก็บ page
         self.frames = {}
-
 
         # loop เปลี่ยน page
         for F in (Main, Backward, Forward, Next):
