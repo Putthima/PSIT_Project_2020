@@ -6,6 +6,7 @@ import time
 import calendar
 from tkinter import *
 from tkinter import ttk
+from functools import partial
 
 
 # พื้นหลัง
@@ -43,23 +44,23 @@ class Setday():
 
 
 # เปิดหน้าต่างใหม่
-def openwindow():
+def openwindow(day):
     # start function
     top = Toplevel(bg="#3d405b")  # พื้นหลังหน้าAdd
     top.title("Create your plan")
     top.geometry("400x600")
 
-    text = Label(top, text="My day", fg="#F4D35E", bg='#3d405b')
+    text = Label(top, text=day, fg="#F4D35E", bg='#3d405b')
     text.pack(padx=20, pady=20)
 
     # ปุ่มเพิ่มข้อมูล
     open_activity = Button(top, text="add", bg="#e07a5f",
-                           command=lambda: create())
+                           command=lambda: create(day))
     open_activity.pack(side="bottom")
 
 
 # new window for keep data of user
-def create():
+def create(day):
 
     # get data into dict ~not complete
     def on_click(e):
@@ -217,9 +218,12 @@ class Display(Frame):
         for r, week in enumerate(dates):
             for c, date in enumerate(week):
 
+                #เก็บค่าวัน
+                day = partial(openwindow, date)
+                
                 # สร้างช่องวัน
                 label = Button(self, text=date.strftime('%d'),
-                               command=lambda: openwindow())
+                               command= day)
                 label.grid(row=r+3, column=c+1, pady=7)
 
                 # เช็ควันที่ไม่อยู่ในเดือนนี้
@@ -284,6 +288,7 @@ class Main(Frame):
         # เก็บปี และเดือน
         year = Setday.year
         month = Setday.month
+
 
         # use class Display for show days in thismonth
         display = Display.show(self, year, month)
