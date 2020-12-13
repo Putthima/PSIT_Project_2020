@@ -1,13 +1,16 @@
 from tkinter import *
-from tkinter import messagebox
-top = Tk()
-top.geometry("1280x720")
 
-# C = Canvas(top, bg="Blue", height=250, width=300)
-filename = PhotoImage(file = "image\\background.png")
-background_label = Label(top, image=filename)
-background_label.place(x=0, y=0, relwidth=1, relheight=1)
+class Wallpaper():
+    def background(self, master):
+        canvas = Canvas(master, width=1000,  height=563)
+        self.photo = PhotoImage(file = 'image/bg.png')
+        canvas.create_image(500, 280, image=self.photo)
+        canvas.grid()
 
+root = Tk()
+test = Test()
+test.background(root)
+root.minsize(1000, 563)
+root.maxsize(1000, 563)
+root.mainloop()
 
-# C.pack()
-top.mainloop()

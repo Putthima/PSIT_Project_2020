@@ -1,14 +1,18 @@
 # จะแก้ไข main.py ให้ใช้ไฟล์ main_playground.py ก่อน
 # update ล่าสุด
-#
-#
-# เหน่ง
 
 
 import time
 import calendar
 from tkinter import *
 from tkinter import ttk
+
+class Wallpaper():
+    def background(self):
+        canvas = Canvas(self, width=1000,  height=563)
+        self.photo = PhotoImage(file = 'image/bg.png')
+        canvas.create_image(500, 280, image=self.photo)
+        return canvas
 
 
 # ตรวจสอบเวลา
@@ -34,6 +38,7 @@ class Setday():
 
         show = mname[month-1]
         return show
+
 
 def openwindow():
     #start function
@@ -161,6 +166,10 @@ def create():
 class Display(Frame):
     def show(self, year, month):
 
+        # background 
+        background = Wallpaper.background(self)
+        background.place(x=0, y=0, relwidth=1, relheight=1)
+        
         # keep all elements of Label
         labels = []
 
@@ -215,6 +224,10 @@ class App(Tk):
         self.title("Inminder")
         self.option_add("*Font", "consulas 20")
 
+        # ขนาดของ window
+        self.minsize(1000, 563)
+        self.maxsize(1000, 563)
+
         # สร้าง container
         container = Frame(self)
         container.pack(side="top", fill="both", expand=True)
@@ -225,11 +238,11 @@ class App(Tk):
         # เก็บ page
         self.frames = {}
 
-        color = "#E29B2F"
+
         # loop เปลี่ยน page
         for F in (Main, Backward, Forward, Next):
 
-            frame = F(container, self, color)
+            frame = F(container, self)
 
             self.frames[F] = frame
 
@@ -244,8 +257,8 @@ class App(Tk):
 
 
 class Main(Frame):
-    def __init__(self, parent, controller, color):
-        Frame.__init__(self, parent, bg=color)
+    def __init__(self, parent, controller):
+        Frame.__init__(self, parent)
 
         # เก็บปี และเดือน
         year = Setday.year
@@ -268,8 +281,8 @@ class Main(Frame):
 
 
 class Backward(Frame):
-    def __init__(self, parent, controller, color):
-        Frame.__init__(self, parent, bg=color)
+    def __init__(self, parent, controller):
+        Frame.__init__(self, parent)
 
         # เก็บปี และเดือน
         year = Setday.year
@@ -292,8 +305,8 @@ class Backward(Frame):
 
 
 class Forward(Frame):
-    def __init__(self, parent, controller, color):
-        Frame.__init__(self, parent, bg=color)
+    def __init__(self, parent, controller):
+        Frame.__init__(self, parent)
 
         # เก็บปี และเดือน
         year = Setday.year
@@ -323,8 +336,8 @@ class Forward(Frame):
 # plan not complete!!
 # i guess it is ok ~30%
 class Next(Frame):
-    def __init__(self, parent, controller, color):
-        Frame.__init__(self, parent, bg=color)
+    def __init__(self, parent, controller):
+        Frame.__init__(self, parent)
 
         # เก็บปี และเดือน
         year = Setday.year
