@@ -185,7 +185,7 @@ def create(datadate):
     close.grid(row=6, column=0)
 
 
-# show calendar into Class Main
+# show calendar into Class Thismonth
 class Display(Frame):
     def show(self, year, month):
 
@@ -240,7 +240,7 @@ class Display(Frame):
     #     # nothing
 
 
-# Main Class
+# Thismonth Class
 class App(Tk):
     def __init__(self, *args, **kwargs):
         # สร้าง __init__ สำหรับ Tk
@@ -263,9 +263,11 @@ class App(Tk):
 
         # เก็บ page
         self.frames = {}
+        
+        page = (Thismonth, Montha1, Monthd1)
 
         # loop เปลี่ยน page
-        for F in (Main, Backward, Forward, Next):
+        for F in page:
 
             frame = F(container, self)
 
@@ -274,14 +276,14 @@ class App(Tk):
             frame.grid(row=0, column=0, sticky="nsew")
 
         # แสดงหน้าหลัก
-        self.show_frame(Main)
+        self.show_frame(Thismonth)
 
     def show_frame(self, cont):
         frame = self.frames[cont]
         frame.tkraise()
 
 
-class Main(Frame):
+class Thismonth(Frame):
     def __init__(self, parent, controller):
         Frame.__init__(self, parent)
 
@@ -295,18 +297,18 @@ class Main(Frame):
         for day in display:
             day.grid()
 
-        # กดเปลี่ยน page to Backward
-        button1 = ttk.Button(self, text="Backward",
-                             command=lambda: controller.show_frame(Backward))
+        # กดเปลี่ยน page to Monthd1
+        button1 = Button(self, text="Monthd1", bg="Blue",
+                             command=lambda: controller.show_frame(Monthd1))
         button1.grid(row=1, column=1, padx=10, pady=10)
 
-        # กดเปลี่ยน page to Forward
-        button2 = ttk.Button(self, text="Forward",
-                             command=lambda: controller.show_frame(Forward))
+        # กดเปลี่ยน page to Montha1
+        button2 = Button(self, text="Montha1", bg="Red",
+                             command=lambda: controller.show_frame(Montha1))
         button2.grid(row=1, column=2, padx=10, pady=10)
 
 
-class Backward(Frame):
+class Monthd1(Frame):
     def __init__(self, parent, controller):
         Frame.__init__(self, parent)
 
@@ -319,18 +321,18 @@ class Backward(Frame):
         for day in display:
             day.grid()
 
-        # กดเปลี่ยน page to Main
-        button1 = ttk.Button(self, text="Main",
-                             command=lambda: controller.show_frame(Main))
+        # กดเปลี่ยน page to Thismonth
+        button1 = Button(self, text="Thismonth", bg="Green",
+                             command=lambda: controller.show_frame(Thismonth))
         button1.grid(row=1, column=1, padx=10, pady=10)
 
-        # กดเปลี่ยน page to Forward
-        button2 = ttk.Button(self, text="Forward",
-                             command=lambda: controller.show_frame(Forward))
+        # กดเปลี่ยน page to Montha1
+        button2 = Button(self, text="Montha1", bg="Red",
+                             command=lambda: controller.show_frame(Montha1))
         button2.grid(row=1, column=2, padx=10, pady=10)
 
 
-class Forward(Frame):
+class Montha1(Frame):
     def __init__(self, parent, controller):
         Frame.__init__(self, parent)
 
@@ -343,45 +345,14 @@ class Forward(Frame):
         for day in display:
             day.grid()
 
-        # กดเปลี่ยน page to Backward
-        button1 = ttk.Button(self, text="Backward",
-                             command=lambda: controller.show_frame(Backward))
+        # กดเปลี่ยน page to Monthd1
+        button1 = Button(self, text="Monthd1", bg="Blue",
+                             command=lambda: controller.show_frame(Monthd1))
         button1.grid(row=1, column=1, padx=10, pady=10)
 
-        # กดเปลี่ยน page to Main
-        button2 = ttk.Button(self, text="Main",
-                             command=lambda: controller.show_frame(Main))
-        button2.grid(row=1, column=2, padx=10, pady=10)
-
-        # กดเปลี่ยน page to next
-        button2 = ttk.Button(self, text="Next",
-                             command=lambda: controller.show_frame(Next))
-        button2.grid(row=1, column=3, padx=10, pady=10)
-
-
-# plan not complete!!
-# i guess it is ok ~30%
-class Next(Frame):
-    def __init__(self, parent, controller):
-        Frame.__init__(self, parent)
-
-        # เก็บปี และเดือน
-        year = Setday.year
-        month = Setday.month + 2
-
-        # use class Display for show days in thismonth
-        display = Display.show(self, year, month)
-        for day in display:
-            day.grid()
-
-        # กดเปลี่ยน page to Backward
-        button1 = ttk.Button(self, text="Main",
-                             command=lambda: controller.show_frame(Main))
-        button1.grid(row=1, column=1, padx=10, pady=10)
-
-        # กดเปลี่ยน page to Forward
-        button2 = ttk.Button(self, text="Forward",
-                             command=lambda: controller.show_frame(Forward))
+        # กดเปลี่ยน page to Thismonth
+        button2 = Button(self, text="Thismonth", bg="Green",
+                             command=lambda: controller.show_frame(Thismonth))
         button2.grid(row=1, column=2, padx=10, pady=10)
 
 
