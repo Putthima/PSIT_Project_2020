@@ -59,86 +59,84 @@ class Setday():
 
 
 # show calendar into Class Main
-class Display(Frame):
-    def show(self, year, month):
+def show(master, year, month):
+    # keep all elements of Label
+    labels = []
 
-        # keep all elements of Label
-        labels = []
+    # ถ้าเกิน 12 เดือน เปลี่ยนเป็นปีใหม่ เดือน ๅ
+    if month > 12:
+        year += 1
+        month -= 12
 
-        # ถ้าเกิน 12 เดือน เปลี่ยนเป็นปีใหม่ เดือน ๅ
-        if month > 12:
-            year += 1
-            month -= 12
+    # show name month
+    show_month = Label(master, text=Setday.checkmonth(year, month))
+    show_month.grid(row=0, column=1)
+    labels.append(show_month)
 
-        # show name month
-        show_month = Label(self, text=Setday.checkmonth(year, month))
-        show_month.grid(row=0, column=1)
-        labels.append(show_month)
+    # สร้าง head วัน จ-อา
+    for i, j in enumerate(["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]):
+        show_day = ttk.Label(master, text=j)
+        show_day.grid(row=2, column=i+1, padx=10, pady=10)
+        labels.append(show_day)
 
-        # สร้าง head วัน จ-อา
-        for i, j in enumerate(["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]):
-            show_day = ttk.Label(self, text=j)
-            show_day.grid(row=2, column=i+1, padx=10, pady=10)
-            labels.append(show_day)
-
-        # สร้างวันที่ของเดือนนี้
-        cal = calendar.Calendar()
-        dates = cal.monthdatescalendar(year, month)
-        global date
-        for r, week in enumerate(dates):
-            for c, date in enumerate(week):
-                #เก็บค่า วัน เดือน ปี ส่งไป openwindow()
-                keepdate = partial(openwindow, date)
-                
-                # สร้างช่องวัน
-                # print(date.day, date.month, date.year)
-                with open("record.csv", 'r', newline="", encoding="utf8") as f:
-                    data = csv.DictReader(f)
-                    x = []
-                    for row in data:
-                        x.append(row)
-                    x = sorted(x, key=lambda x: x["Priority"])
-                    for row in x:
-                        if row["Day"] == str(date.day) and row["Month"] == str(date.month) and row["Year"] == str(date.year):
-                            if row["Priority"] == "1":
-                                label = Button(self, text=date.strftime('%d'),
-                                            command= keepdate, bg="#ec3624")
-                                label.grid(row=r+3, column=c+1, pady=7)
-                                labels.append(label)
-                                break
-                            elif row["Priority"] == "2":
-                                label = Button(self, text=date.strftime('%d'),
-                                            command= keepdate, bg="#fa9a00")
-                                label.grid(row=r+3, column=c+1, pady=7)
-                                labels.append(label)
-                                break
-                            elif row["Priority"] == "3":
-                                label = Button(self, text=date.strftime('%d'),
-                                            command= keepdate, bg="#60ba46")
-                                label.grid(row=r+3, column=c+1, pady=7)
-                                labels.append(label)
-                                break
-                            elif row["Priority"] == "4":
-                                label = Button(self, text=date.strftime('%d'),
-                                            command= keepdate, bg="#a9ff17")
-                                label.grid(row=r+3, column=c+1, pady=7)
-                                labels.append(label)
-                                break
-                        else:
-                            label = Button(self, text=date.strftime('%d'),
-                                        command= keepdate, bg="White")
+    # สร้างวันที่ของเดือนนี้
+    cal = calendar.Calendar()
+    dates = cal.monthdatescalendar(year, month)
+    global date
+    for r, week in enumerate(dates):
+        for c, date in enumerate(week):
+            #เก็บค่า วัน เดือน ปี ส่งไป openwindow()
+            keepdate = partial(openwindow, date)
+            
+            # สร้างช่องวัน
+            # print(date.day, date.month, date.year)
+            with open("record.csv", 'r', newline="", encoding="utf8") as f:
+                data = csv.DictReader(f)
+                x = []
+                for row in data:
+                    x.append(row)
+                x = sorted(x, key=lambda x: x["Priority"])
+                for row in x:
+                    if row["Day"] == str(date.day) and row["Month"] == str(date.month) and row["Year"] == str(date.year):
+                        if row["Priority"] == "1":
+                            label = Button(master, text=date.strftime('%d'),
+                                        command= keepdate, bg="#ec3624")
                             label.grid(row=r+3, column=c+1, pady=7)
                             labels.append(label)
-    
-                # เช็ควันที่ไม่อยู่ในเดือนนี้
-                if date.month != month:
-                    label['bg'] = '#d3d3d3'
-                    label["state"] = "disabled"
-                if c == 6:
-                    label['fg'] = 'Black'
-                
+                            break
+                        elif row["Priority"] == "2":
+                            label = Button(master, text=date.strftime('%d'),
+                                        command= keepdate, bg="#fa9a00")
+                            label.grid(row=r+3, column=c+1, pady=7)
+                            labels.append(label)
+                            break
+                        elif row["Priority"] == "3":
+                            label = Button(master, text=date.strftime('%d'),
+                                        command= keepdate, bg="#60ba46")
+                            label.grid(row=r+3, column=c+1, pady=7)
+                            labels.append(label)
+                            break
+                        elif row["Priority"] == "4":
+                            label = Button(master, text=date.strftime('%d'),
+                                        command= keepdate, bg="#a9ff17")
+                            label.grid(row=r+3, column=c+1, pady=7)
+                            labels.append(label)
+                            break
+                    else:
+                        label = Button(master, text=date.strftime('%d'),
+                                    command= keepdate, bg="White")
+                        label.grid(row=r+3, column=c+1, pady=7)
+                        labels.append(label)
 
-        return labels
+            # เช็ควันที่ไม่อยู่ในเดือนนี้
+            if date.month != month:
+                label['bg'] = '#d3d3d3'
+                label["state"] = "disabled"
+            if c == 6:
+                label['fg'] = 'Black'
+            
+
+    return labels
 
 
 def delete(name):
@@ -357,61 +355,17 @@ def create(datadate):
 
 # main page completed
 def main(root):
-    
-
 
     # เก็บปี และเดือน
     years = Setday.year
     months = Setday.month
 
     # use class Display for show days in thismonth
-    display = Display.show(root, years, months)
+    display = show(root, years, months)
     for day in display:
         day.grid()
 
-    # search month
-    monthlist = ['Month'] + list(range(1, 13))
-    Label(root, text="Month").grid(row=0, column=5)
-    getmonth = ttk.Combobox(root, values=monthlist, width=6, state="readonly")
-    getmonth.set(months)
-    getmonth.grid(row=0, column=6)
-
-    # search year
-    yearslist = ['Year'] + list(range(2025, 2014, -1))
-    Label(root, text="Year").grid(row=0, column=7)
-    getyear = ttk.Combobox(root, values=yearslist, width=5, state="readonly")
-    getyear.set(years)
-    getyear.grid(row=0, column=8)
-
-    # when click submit
-    def on_click(e):
-        year = int(getyear.get())
-        month = int(getmonth.get())
-        print(year, month)
-        # search(year, month)
-
-    # ไว้คลิกยืนยัน เมื่อกดเสร็จ
-    submit = Button(root, text="Submit", bg="#81b29a")
-    submit.grid(row=0, column=9)
-    submit.bind('<Button-1>', on_click)
-
-
-# search ~50%
-# def search(year, month):
-#     run.destroy()
-#     search = Tk()
-#     search.geometry("1000x563")
-#     search.option_add("*Font", "consolas 20")
-
-#     # use class Display for show days in thismonth
-#     display = Display.show(search, year, month)
-#     for day in display:
-#         day.grid()
-
-#     Label(search, text="Year" + str(year)).grid(row=0, column=7)
-#     Label(search, text="Month" + str(month)).grid(row=0, column=8)
-
-
+ 
 # RUN APP
 main(run)
 try:
