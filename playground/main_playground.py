@@ -7,6 +7,12 @@ import calendar
 from tkinter import *
 from tkinter import ttk
 from functools import partial
+import csv
+import shutil
+from tempfile import NamedTemporaryFile
+global count
+count = 0
+
 
 run = Tk()
 run.geometry("1000x563")
@@ -36,8 +42,11 @@ class Setday():
     hour = timer.tm_hour
     # แปลงเป็นนาที
     mins = timer.tm_min
+    # แปลงเป็นวินาที
+    seccon = timer.tm_sec
 
     #ตรวจสอบชื่อเดือน == เลข
+
     def checkmonth(self, month):
         mname = ["January", "February", "March", "April", "May",
                  "June", "July", "August", "September", "October", "November", "December"]
@@ -98,6 +107,20 @@ class Display(Frame):
         return labels
 
 
+def delete(name):
+    #ใจเย็นๆ
+    fieldnames = ["ID","Activity","Priority","Day","Month","Year","Hours","Minute"]
+    with open("record.csv", "r", encoding="utf8") as csvfile, open("File.csv", "w", encoding="utf8") as outputfile:
+        reader = csv.DictReader(csvfile, fieldnames=fieldnames)
+        writer = csv.DictWriter(outputfile, fieldnames=fieldnames)
+        for row in reader:
+            if not name == row["ID"]:
+                writer.writerow({"ID": row["ID"], "Activity": row["Activity"], "Priority": row["Priority"], "Day": row["Day"], "Month": row["Month"], "Year": row["Year"], "Hours": row["Hours"], "Minute": row["Minute"]})
+            else:
+                writer.writerow({"ID": row["ID"], "Activity": row["Activity"], "Priority": row["Priority"], "Day": 600, "Month": row["Month"], "Year": row["Year"], "Hours": row["Hours"], "Minute": row["Minute"]})
+    shutil.move("File.csv", "record.csv")
+
+
 # เปิดหน้าต่างใหม่
 def openwindow(keepdate):
     # start function
@@ -107,35 +130,54 @@ def openwindow(keepdate):
 
     text = Label(top, text=keepdate, fg="#F4D35E", bg='#3d405b')
     text.pack(padx=20, pady=20)
+    Label(top, text="Hello").pack(pady=20)
+    # อ่านไฟล์มาจาก record.csv
+    with open(r"record.csv", newline="", encoding="utf8") as f:
+        data = csv.DictReader(f)
+        print(type(data))
+        print(data)
+        print(data.fieldnames)
+        #ใจเย็นๆ
+        for row in data:
+            value = partial(delete, row["ID"])
+            #ใจเย็นๆ
+            if row["Day"] == str(keepdate.day) and row["Month"] == str(keepdate.month) and row["Year"] == str(keepdate.year) :
+                Label(top, text=row["Activity"]+" "+row["Hours"]+":"+row["Minute"]).pack()
+                Button(top, text="Delete", command= value).pack()
 
     #เก็บค่าตัวแปร ส่งไป create()
     datadate = partial(create, keepdate)
 
     # ปุ่มเพิ่มข้อมูล
-    open_activity = Button(top, text="add", image=adds, command= datadate)
+    open_activity = Button(top, text="add", command= datadate)
     open_activity.pack(side="bottom", pady=10)
 
 
 # new window for keep data of user
 def create(datadate):
-
     # get data into dict ~not complete
     def on_click(e):
-
+        global count
+        count += 1
         # print("Your Activity is:%s\nPriority:%s\nDay:%s\nMonth: \
         #     %s\nYear:%s\nTime:%s:%s" % (value_activity.get(), value_important.get(), \
         #         days.get(), months.get(), years.get(), hours.get(), minutes.get()))
 
         # keep data with dict
-        keep = {
-            'Activity': value_activity.get(),
-            'Priority': value_important.get(),
-            'Day': days.get(),
-            'Month': months.get(),
-            'Year': years.get(),
-            'Time': [hours.get(), minutes.get()]
+        ids = str(Setday.day)+str(Setday.month)+str(Setday.year)+str(Setday.hour)+str(Setday.mins)+str(Setday.seccon)
+        keep = {'ID' : ids+str(count),
+            'Activity':value_activity.get(),
+            'Priority':value_important.get(),
+            'Day':days.get(),
+            'Month':months.get(),
+            'Year':years.get(),
+            'Time':[hours.get(),minutes.get()]
         }
-
+        with open('record.csv', 'a', newline="", encoding="utf8") as f:
+            writer = csv.writer(f)
+        #เขียนอะไรลงในไฟล์บ้าง
+            writer.writerow([ids+str(count), value_activity.get(), value_important.get(), days.get(), months.get(), years.get(),\
+                hours.get(), minutes.get()])
         print(keep)
 
     # start function
@@ -269,7 +311,8 @@ def main(root):
     def on_click(e):
         year = int(getyear.get())
         month = int(getmonth.get())
-        search(year, month)
+        print(year, month)
+        # search(year, month)
 
     # ไว้คลิกยืนยัน เมื่อกดเสร็จ
     submit = Button(root, text="Submit", bg="#81b29a")
@@ -278,19 +321,19 @@ def main(root):
 
 
 # search ~50%
-def search(year, month):
-    run.destroy()
-    search = Tk()
-    search.geometry("1000x563")
-    search.option_add("*Font", "consolas 20")
+# def search(year, month):
+#     run.destroy()
+#     search = Tk()
+#     search.geometry("1000x563")
+#     search.option_add("*Font", "consolas 20")
 
-    # use class Display for show days in thismonth
-    display = Display.show(search, year, month)
-    for day in display:
-        day.grid()
+#     # use class Display for show days in thismonth
+#     display = Display.show(search, year, month)
+#     for day in display:
+#         day.grid()
 
-    Label(search, text="Year" + str(year)).grid(row=0, column=7)
-    Label(search, text="Month" + str(month)).grid(row=0, column=8)
+#     Label(search, text="Year" + str(year)).grid(row=0, column=7)
+#     Label(search, text="Month" + str(month)).grid(row=0, column=8)
 
 
 # RUN APP
