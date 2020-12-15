@@ -4,32 +4,40 @@
 
 import time
 import calendar
+import csv
+import shutil
+import tkinter.font as font
 from tkinter import *
 from tkinter import ttk
 from functools import partial
-import csv
-import shutil
 from tempfile import NamedTemporaryFile
+
 global count
 count = 0
 
-
 run = Tk()
-run.geometry("1000x563")
-run.option_add("*Font", "consolas 20")
+run.geometry("800x500")
+run.maxsize(800, 500)
+run.minsize(800, 500)
+run.title("inminder")
+run.iconbitmap("image/realreal.ico")
+
+fontmain = font.Font(family='MS UI Gothic', size=20, weight='bold')
+fontadd = font.Font(family='MS UI Gothic', size=20, weight='bold')
 
 
 # พื้นหลัง
-class Wallpaper():
-    def background(self):
-        canvas = Canvas(self, width=1000,  height=563)
-        self.photo = PhotoImage(file='image/bg.png')
-        canvas.create_image(500, 280, image=self.photo)
-        return canvas
+def background(self):
+    canvas = Canvas(self, width=800,  height=500)
+    self.photo = PhotoImage(file='image/bg.png')
+    canvas.create_image(500, 230, image=self.photo)
+    return canvas
+
 
 # background
-background = Wallpaper.background(run)
+background = background(run)
 background.place(x=0, y=0, relwidth=1, relheight=1)
+
 
 # ตรวจสอบเวลา
 class Setday():
@@ -68,14 +76,9 @@ def show(master, year, month):
         year += 1
         month -= 12
 
-    # show name month
-    show_month = Label(master, text=Setday.checkmonth(year, month))
-    show_month.grid(row=0, column=1)
-    labels.append(show_month)
-
     # สร้าง head วัน จ-อา
     for i, j in enumerate(["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]):
-        show_day = ttk.Label(master, text=j)
+        show_day = Label(master, text=j, font=fontmain)
         show_day.grid(row=2, column=i+1, padx=10, pady=10)
         labels.append(show_day)
 
@@ -85,9 +88,9 @@ def show(master, year, month):
     global date
     for r, week in enumerate(dates):
         for c, date in enumerate(week):
-            #เก็บค่า วัน เดือน ปี ส่งไป openwindow()
+            # เก็บค่า วัน เดือน ปี ส่งไป openwindow()
             keepdate = partial(openwindow, date)
-            
+
             # สร้างช่องวัน
             # print(date.day, date.month, date.year)
             with open("record.csv", 'r', newline="", encoding="utf8") as f:
@@ -99,32 +102,32 @@ def show(master, year, month):
                 for row in x:
                     if row["Day"] == str(date.day) and row["Month"] == str(date.month) and row["Year"] == str(date.year):
                         if row["Priority"] == "1":
-                            label = Button(master, text=date.strftime('%d'),
-                                        command= keepdate, bg="#ec3624")
+                            label = Button(master, text=date.strftime('%d'), font=fontmain,
+                                           command=keepdate, bg="#ec3624")
                             label.grid(row=r+3, column=c+1, pady=7)
                             labels.append(label)
                             break
                         elif row["Priority"] == "2":
-                            label = Button(master, text=date.strftime('%d'),
-                                        command= keepdate, bg="#fa9a00")
+                            label = Button(master, text=date.strftime('%d'), font=fontmain,
+                                           command=keepdate, bg="#fa9a00")
                             label.grid(row=r+3, column=c+1, pady=7)
                             labels.append(label)
                             break
                         elif row["Priority"] == "3":
-                            label = Button(master, text=date.strftime('%d'),
-                                        command= keepdate, bg="#60ba46")
+                            label = Button(master, text=date.strftime('%d'), font=fontmain,
+                                           command=keepdate, bg="#60ba46")
                             label.grid(row=r+3, column=c+1, pady=7)
                             labels.append(label)
                             break
                         elif row["Priority"] == "4":
-                            label = Button(master, text=date.strftime('%d'),
-                                        command= keepdate, bg="#a9ff17")
+                            label = Button(master, text=date.strftime('%d'), font=fontmain,
+                                           command=keepdate, bg="#a9ff17")
                             label.grid(row=r+3, column=c+1, pady=7)
                             labels.append(label)
                             break
                     else:
-                        label = Button(master, text=date.strftime('%d'),
-                                    command= keepdate, bg="White")
+                        label = Button(master, text=date.strftime('%d'), font=fontmain,
+                                       command=keepdate, bg="White")
                         label.grid(row=r+3, column=c+1, pady=7)
                         labels.append(label)
 
@@ -134,23 +137,25 @@ def show(master, year, month):
                 label["state"] = "disabled"
             if c == 6:
                 label['fg'] = 'Black'
-            
 
     return labels
 
 
 def delete(name):
 
-    fieldnames = ["ID","Activity","Priority","Day","Month","Year","Hours","Minute"]
+    fieldnames = ["ID", "Activity", "Priority",
+                  "Day", "Month", "Year", "Hours", "Minute"]
 
     with open("record.csv", "r", encoding="utf8") as csvfile, open("File.csv", "w", encoding="utf8") as outputfile:
         reader = csv.DictReader(csvfile, fieldnames=fieldnames)
         writer = csv.DictWriter(outputfile, fieldnames=fieldnames)
         for row in reader:
             if not name == row["ID"]:
-                writer.writerow({"ID": row["ID"], "Activity": row["Activity"], "Priority": row["Priority"], "Day": row["Day"], "Month": row["Month"], "Year": row["Year"], "Hours": row["Hours"], "Minute": row["Minute"]})
+                writer.writerow({"ID": row["ID"], "Activity": row["Activity"], "Priority": row["Priority"], "Day": row["Day"],
+                                 "Month": row["Month"], "Year": row["Year"], "Hours": row["Hours"], "Minute": row["Minute"]})
             else:
-                writer.writerow({"ID": row["ID"], "Activity": row["Activity"], "Priority": row["Priority"], "Day": 600, "Month": row["Month"], "Year": row["Year"], "Hours": row["Hours"], "Minute": row["Minute"]})
+                writer.writerow({"ID": row["ID"], "Activity": row["Activity"], "Priority": row["Priority"], "Day": 600,
+                                 "Month": row["Month"], "Year": row["Year"], "Hours": row["Hours"], "Minute": row["Minute"]})
     shutil.move("File.csv", "record.csv")
 
     dayframe.destroy()
@@ -181,7 +186,6 @@ def openwindow(keepdate):
         # print(type(data))
         # print(data)
         # print(data.fieldnames)
-        #ใจเย็นๆ
         x = []
         for row in data:
             x.append(row)
@@ -189,34 +193,43 @@ def openwindow(keepdate):
         x = sorted(x, key=lambda x: x["Hours"])
         for row in x:
             value = partial(delete, row["ID"])
-            #ใจเย็นๆ
-            if row["Day"] == str(keepdate.day) and row["Month"] == str(keepdate.month) and row["Year"] == str(keepdate.year) :
-                if row["Priority"] == "1":
-                    Label(dayframe, text=row["Activity"]+" "+row["Hours"]+":"+row["Minute"], bg="#ec3624").pack()
-                    Label(dayframe, text="Important And Hurry", bg="#ec3624").pack()
-                if row["Priority"] == "2":
-                    Label(dayframe, text=row["Activity"]+" "+row["Hours"]+":"+row["Minute"], bg="#fa9a00").pack()
-                    Label(dayframe, text="Important But Slowly", bg="#fa9a00").pack()
-                if row["Priority"] == "3":
-                    Label(dayframe, text=row["Activity"]+" "+row["Hours"]+":"+row["Minute"], bg="#60ba46").pack()
-                    Label(dayframe, text="Unimportant And Hurry", bg="#60ba46").pack()
-                if row["Priority"] == "4":
-                    Label(dayframe, text=row["Activity"]+" "+row["Hours"]+":"+row["Minute"], bg="#a9ff17").pack()
-                    Label(dayframe, text="Unimportant But Slowly", bg="#a9ff17").pack()
-                Button(dayframe, text="Delete", command= value).pack()
 
-    #เก็บค่าตัวแปร ส่งไป create()
+            if row["Day"] == str(keepdate.day) and row["Month"] == str(keepdate.month) and row["Year"] == str(keepdate.year):
+                if row["Priority"] == "1":
+                    Label(dayframe, text=row["Activity"]+" " +
+                          row["Hours"]+":"+row["Minute"], bg="#ec3624").pack()
+                    Label(dayframe, text="Important And Hurry",
+                          bg="#ec3624").pack()
+                if row["Priority"] == "2":
+                    Label(dayframe, text=row["Activity"]+" " +
+                          row["Hours"]+":"+row["Minute"], bg="#fa9a00").pack()
+                    Label(dayframe, text="Important But Slowly",
+                          bg="#fa9a00").pack()
+                if row["Priority"] == "3":
+                    Label(dayframe, text=row["Activity"]+" " +
+                          row["Hours"]+":"+row["Minute"], bg="#60ba46").pack()
+                    Label(dayframe, text="Unimportant And Hurry",
+                          bg="#60ba46").pack()
+                if row["Priority"] == "4":
+                    Label(dayframe, text=row["Activity"]+" " +
+                          row["Hours"]+":"+row["Minute"], bg="#a9ff17").pack()
+                    Label(dayframe, text="Unimportant But Slowly",
+                          bg="#a9ff17").pack()
+                Button(dayframe, text="Delete", command=value).pack()
+
+    # เก็บค่าตัวแปร ส่งไป create()
     datadate = partial(create, keepdate)
 
     # ปุ่มเพิ่มข้อมูล
-    open_activity = Button(dayframe, text="add", command= datadate)
-    open_activity.pack(side="bottom", pady=10)
+    open_activity = Button(dayframe, text="  +  ",
+                           command=datadate, font=fontadd)
+    open_activity.pack(side="bottom", pady=15)
 
 
 # new window for keep data of user
 def create(datadate):
 
-    # get data into dict 
+    # get data into dict
     def on_click(e):
 
         global count
@@ -230,22 +243,22 @@ def create(datadate):
         elif value_important.get() == "Important And Hurry":
             quality = 1
         # keep data with dict
-        ids = str(Setday.day)+str(Setday.month)+str(Setday.year)+str(Setday.hour)+str(Setday.mins)+str(Setday.seccon)
-        keep = {'ID' : ids+str(count),
-            'Activity':value_activity.get(),
-            'Priority':quality,
-            'Day':days.get(),
-            'Month':months.get(),
-            'Year':years.get(),
-            'Time':[hours.get(),minutes.get()]
-        }
+        ids = str(Setday.day)+str(Setday.month)+str(Setday.year) + \
+            str(Setday.hour)+str(Setday.mins)+str(Setday.seccon)
+        keep = {'ID': ids+str(count),
+                'Activity': value_activity.get(),
+                'Priority': quality,
+                'Day': days.get(),
+                'Month': months.get(),
+                'Year': years.get(),
+                'Time': [hours.get(), minutes.get()]
+                }
         with open('record.csv', 'a', newline="", encoding="utf8") as f:
             writer = csv.writer(f)
 
             # เขียนอะไรลงในไฟล์บ้าง
-            writer.writerow([ids+str(count), value_activity.get(), quality, days.get(), months.get(), years.get(),\
-                hours.get(), minutes.get()])
-        
+            writer.writerow([ids+str(count), value_activity.get(), quality, days.get(), months.get(), years.get(),
+                             hours.get(), minutes.get()])
 
         top.destroy()
         dayframe.destroy()
@@ -282,15 +295,15 @@ def create(datadate):
 
     value_important = StringVar()
     value_important.set("Unimportant But Slowly")
-    #Edit
+    # Edit
     important = ["Important And Hurry",
-                "Important But Slowly",
-                "Unimportant And Hurry",
-                "Unimportant But Slowly"
-    ]
+                 "Important But Slowly",
+                 "Unimportant And Hurry",
+                 "Unimportant But Slowly"
+                 ]
 
     color = ["#ec3624", "#fa9a00", "#60ba46", "#a9ff17"]
-    
+
     # show choice of important
     item_per_row = 2
     for i in range(len(important)):
@@ -298,7 +311,7 @@ def create(datadate):
                     variable=value_important, indicatoron=False).grid(
                         row=(i // item_per_row) + 2, column=i % item_per_row, sticky=W
         )
-    #Edit
+    # Edit
     Label(frame_im, text="Date and Times").grid(row=4, column=0, sticky=W)
 
     # เก็บค่าวันและเวลา
@@ -315,14 +328,16 @@ def create(datadate):
     # กรอกเป็นเดือน
     monthlist = ['Month'] + list(range(1, 13))
     Label(frame_date, text="Month").grid(row=4, column=2)
-    months = ttk.Combobox(frame_date, values=monthlist, width=6, state="readonly")
+    months = ttk.Combobox(frame_date, values=monthlist,
+                          width=6, state="readonly")
     months.set(datadate.month)
     months.grid(row=4, column=3)
 
     # กรอกเป็นปี
     yearslist = ['Year'] + list(range(2025, 2014, -1))
     Label(frame_date, text="Year").grid(row=4, column=4)
-    years = ttk.Combobox(frame_date, values=yearslist, width=5, state="readonly")
+    years = ttk.Combobox(frame_date, values=yearslist,
+                         width=5, state="readonly")
     years.set(datadate.year)
     years.grid(row=4, column=5)
 
@@ -357,17 +372,24 @@ def create(datadate):
 def main(root):
 
     # เก็บปี และเดือน
-    years = Setday.year
-    months = Setday.month
+    year = Setday.year
+    month = Setday.month
+
+    # show name month
+    show_month = Label(root, text=Setday.checkmonth(
+        year, month), bg='snow', fg='red', font=fontmain)
+    show_month.grid(padx=10, pady=30)
+    # labels.append(show_month)
 
     # use class Display for show days in thismonth
-    display = show(root, years, months)
+    display = show(root, year, month)
     for day in display:
-        day.grid()
+        day.grid(padx=10, pady=10)
 
- 
+
 # RUN APP
 main(run)
+
 try:
     while True:
         run.update_idletasks()
