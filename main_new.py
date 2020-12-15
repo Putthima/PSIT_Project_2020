@@ -178,14 +178,11 @@ def openwindow(keepdate):
     dayframe.title("Create your plan")
     dayframe.geometry("400x600")
 
-    text = Label(dayframe, text=keepdate, fg="#F4D35E", bg='#3d405b')
+    text = Label(dayframe, text="Date : %d/%d/%d" % (keepdate.day, keepdate.month, keepdate.year), fg="#F4D35E", bg='#3d405b')
     text.pack(padx=20, pady=20)
     # อ่านไฟล์มาจาก record.csv
     with open(r"record.csv", newline="", encoding="utf8") as f:
         data = csv.DictReader(f)
-        # print(type(data))
-        # print(data)
-        # print(data.fieldnames)
         x = []
         for row in data:
             x.append(row)
@@ -196,26 +193,26 @@ def openwindow(keepdate):
 
             if row["Day"] == str(keepdate.day) and row["Month"] == str(keepdate.month) and row["Year"] == str(keepdate.year):
                 if row["Priority"] == "1":
-                    Label(dayframe, text=row["Activity"]+" " +
+                    Label(dayframe, text="ชื่อ : "+ row["Activity"] + "\n กำหนดการ : " + 
                           row["Hours"]+":"+row["Minute"], bg="#ec3624").pack()
-                    Label(dayframe, text="Important And Hurry",
+                    Label(dayframe, text="ความสำคัญ : " + "Important And Hurry",
                           bg="#ec3624").pack()
                 if row["Priority"] == "2":
-                    Label(dayframe, text=row["Activity"]+" " +
+                    Label(dayframe, text="ชื่อ : "+ row["Activity"] + "\n กำหนดการ : " + 
                           row["Hours"]+":"+row["Minute"], bg="#fa9a00").pack()
-                    Label(dayframe, text="Important But Slowly",
+                    Label(dayframe, text="ความสำคัญ : " + "Important But Slowly",
                           bg="#fa9a00").pack()
                 if row["Priority"] == "3":
-                    Label(dayframe, text=row["Activity"]+" " +
+                    Label(dayframe, text="ชื่อ : "+ row["Activity"] + "\n กำหนดการ : " + 
                           row["Hours"]+":"+row["Minute"], bg="#60ba46").pack()
-                    Label(dayframe, text="Unimportant And Hurry",
+                    Label(dayframe, text="ความสำคัญ : " + "Unimportant And Hurry",
                           bg="#60ba46").pack()
                 if row["Priority"] == "4":
-                    Label(dayframe, text=row["Activity"]+" " +
+                    Label(dayframe, text="ชื่อ : "+ row["Activity"] + "\n กำหนดการ : " + 
                           row["Hours"]+":"+row["Minute"], bg="#a9ff17").pack()
-                    Label(dayframe, text="Unimportant But Slowly",
+                    Label(dayframe, text="ความสำคัญ : " + "Unimportant But Slowly",
                           bg="#a9ff17").pack()
-                Button(dayframe, text="Delete", command=value).pack()
+                Button(dayframe, text="Delete", command=value).pack(pady=10)
 
     # เก็บค่าตัวแปร ส่งไป create()
     datadate = partial(create, keepdate)
