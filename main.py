@@ -1,5 +1,4 @@
-# จะแก้ไข main.py ให้ใช้ไฟล์ main_playground.py ก่อน
-# update ล่าสุด
+# inminder ver 1.0
 
 import time
 import calendar
@@ -11,21 +10,28 @@ from tkinter import ttk
 from functools import partial
 from tempfile import NamedTemporaryFile
 
+# ค่าไว้สร้าง ID
 global count
 count = 0
 
 run = Tk()
+# size app
 run.maxsize(800, 500)
 run.minsize(800, 500)
+
+# title apps
 run.title("inminder")
+
+# icon app
 run.iconbitmap("image/realreal.ico")
 
+# all fonts for app
 fontmain = font.Font(family='MS UI Gothic', size=20, weight='bold')
 fontnew = font.Font(family='MS UI Gothic', size=20, weight='bold')
 fontadd = font.Font(family='MS UI Gothic', size=20, weight='bold')
 
 
-# พื้นหลัง
+# function bg
 def background(self):
     canvas = Canvas(self, width=800, height=500)
     self.photo = PhotoImage(file='image/bg.png')
@@ -38,25 +44,24 @@ background = background(run)
 background.place(x=0, y=0, relwidth=1, relheight=1)
 
 
-# ตรวจสอบเวลา
+# class check time
 class Setday():
-    # เช็คเวลาปัจจุบัน
+    # present time
     timer = time.localtime()
-    # แปลงเป็นปี
+    # change to year
     year = timer.tm_year
-    # แปลงเป็นเดือน
+    # change to month
     month = timer.tm_mon
-    # แปลงเป็นวัน
+    # change to day
     day = timer.tm_mday
-    # แปลงเป็นชัวโมง
+    # change to hour
     hour = timer.tm_hour
-    # แปลงเป็นนาที
+    # change to minute
     mins = timer.tm_min
-    # แปลงเป็นวินาที
+    # change to second
     seccon = timer.tm_sec
 
-    #ตรวจสอบชื่อเดือน == เลข
-
+    # check month == number
     def checkmonth(self, month):
         mname = [
             "January", "February", "March", "April", "May", "June", "July",
@@ -72,12 +77,12 @@ def show(master, year, month):
     # keep all elements of Label
     labels = []
 
-    # ถ้าเกิน 12 เดือน เปลี่ยนเป็นปีใหม่ เดือน ๅ
+    # if month more than 12 then restart month
     if month > 12:
         year += 1
         month -= 12
 
-    # สร้าง head วัน จ-อา
+    # create head
     colorday = [
         '#F7DC6F', '#F1948A', '#82E0AA', '#F0B27A', '#85C1E9', '#C39BD3',
         '#D98880'
@@ -87,17 +92,14 @@ def show(master, year, month):
         show_day.grid(row=2, column=i + 1, padx=10, pady=10)
         labels.append(show_day)
 
-    # สร้างวันที่ของเดือนนี้
+    # create each day
     cal = calendar.Calendar()
     dates = cal.monthdatescalendar(year, month)
     global date
     for r, week in enumerate(dates):
         for c, date in enumerate(week):
-            # เก็บค่า วัน เดือน ปี ส่งไป openwindow()
+            # send value to openwindow()
             keepdate = partial(openwindow, date)
-
-            # สร้างช่องวัน
-            # print(date.day, date.month, date.year)
             with open("record.csv", 'r', newline="", encoding="utf8") as f:
                 data = csv.DictReader(f)
                 x = []
@@ -152,7 +154,7 @@ def show(master, year, month):
                         label.grid(row=r + 3, column=c + 1, pady=7)
                         labels.append(label)
 
-            # เช็ควันที่ไม่อยู่ในเดือนนี้
+            # check day not in this month
             if date.month != month:
                 label['bg'] = '#d3d3d3'
                 label["state"] = "disabled"
@@ -162,6 +164,7 @@ def show(master, year, month):
     return labels
 
 
+# for delete data in a day
 def delete(name):
 
     fieldnames = [
@@ -199,23 +202,23 @@ def delete(name):
                 })
     shutil.move("File.csv", "record.csv")
 
+    # restart frame and run window again
     dayframe.destroy()
     openwindow(dateagain)
     run.update()
     main(run)
 
 
-# เปิดหน้าต่างใหม่ หน้า day ของแต่ละวัน
+# open window of a day
 def openwindow(keepdate):
     # start function
-
-    # ค่า keep date ส่งให้ dayframe
+    # send value keepdate to dayframe
     global dateagain
     dateagain = keepdate
 
-    # ไว้ลบ top
+    # for delete top frame
     global dayframe
-    dayframe = Toplevel(bg="#3d405b")  # พื้นหลังหน้าAdd
+    dayframe = Toplevel(bg="#3d405b")
     dayframe.title("Create your plan")
     dayframe.geometry("600x800")
 
@@ -226,7 +229,7 @@ def openwindow(keepdate):
                  bg='#3d405b',
                  font=fontmain)
     text.pack(padx=20, pady=20)
-    # อ่านไฟล์มาจาก record.csv
+    # read file from record.csv
     with open(r"record.csv", newline="", encoding="utf8") as f:
         data = csv.DictReader(f)
         x = []
@@ -285,10 +288,10 @@ def openwindow(keepdate):
                        font=fontnew,
                        bg="#2ECC71").pack(pady=5)
 
-    # เก็บค่าตัวแปร ส่งไป create()
+    # send value to create()
     datadate = partial(create, keepdate)
 
-    # ปุ่มเพิ่มข้อมูล
+    # button add data
     open_activity = Button(dayframe,
                            text="  +  ",
                            command=datadate,
@@ -327,7 +330,7 @@ def create(datadate):
         with open('record.csv', 'a', newline="", encoding="utf8") as f:
             writer = csv.writer(f)
 
-            # เขียนอะไรลงในไฟล์บ้าง
+            # write file
             writer.writerow([
                 ids + str(count),
                 value_activity.get(), quality,
@@ -338,6 +341,7 @@ def create(datadate):
                 minutes.get()
             ])
 
+        # restart frame and run window again
         top.destroy()
         dayframe.destroy()
         openwindow(dateagain)
@@ -347,7 +351,7 @@ def create(datadate):
     top = Toplevel()
     top.title("Create activity")
 
-    # ชื่อกิจกรรม
+    # name activity
     frame_activity = Frame(top)
     frame_activity.grid(row=0, column=0, sticky=W, pady=1)
 
@@ -361,7 +365,7 @@ def create(datadate):
     Entry(frame_activity, width=25,
           textvariable=value_activity).pack(side=LEFT, pady=1)
 
-    # แสดงหัวข้อความสำคัญ
+    # name head of important
     frame_text = Frame(top)
     frame_text.grid(row=1, column=0, sticky=W)
 
@@ -369,13 +373,13 @@ def create(datadate):
     Label(frame_text, text="Important Level (Choose one)",
           font=fontnew).pack(pady=1)
 
-    # เก็บค่าความสำคัญ
+    # keep value
     frame_im = Frame(top)
     frame_im.grid(row=2, column=0, sticky=W, pady=1)
 
     value_important = StringVar()
     value_important.set("Unimportant But Slowly")
-    # Edit
+    # edit
     important = [
         "Important And Hurry", "Important But Slowly", "Unimportant And Hurry",
         "Unimportant But Slowly"
@@ -397,11 +401,11 @@ def create(datadate):
                                             sticky=W,
                                             pady=1)
 
-    # เก็บค่าวันและเวลา
+    # keep date and time
     frame_date = Frame(top)
     frame_date.grid(row=5, column=0, sticky=W, pady=1)
 
-    # กรอกเป็นวัน
+    # input day
     daylist = ['Day'] + list(range(1, 32))
     Label(frame_date, text="Day", font=fontnew).grid(row=4, column=0)
     days = ttk.Combobox(frame_date,
@@ -412,7 +416,7 @@ def create(datadate):
     days.set(datadate.day)
     days.grid(row=4, column=1, pady=1)
 
-    # กรอกเป็นเดือน
+    # input month
     monthlist = ['Month'] + list(range(1, 13))
     Label(frame_date, text="Month", font=fontnew).grid(row=5, column=0)
     months = ttk.Combobox(frame_date,
@@ -423,7 +427,7 @@ def create(datadate):
     months.set(datadate.month)
     months.grid(row=5, column=1, pady=1)
 
-    # กรอกเป็นปี
+    # input year
     yearslist = ['Year'] + list(range(2025, 2014, -1))
     Label(frame_date, text="Year", font=fontnew).grid(row=6, column=0)
     years = ttk.Combobox(frame_date,
@@ -434,7 +438,7 @@ def create(datadate):
     years.set(datadate.year)
     years.grid(row=6, column=1, pady=1)
 
-    # กรอกเป็นชัวโมง
+    # input hour
     Label(frame_date, text="Hour", font=fontnew).grid(row=7, column=0)
     hours = ttk.Combobox(frame_date,
                          values=list(range(00, 24)),
@@ -444,7 +448,7 @@ def create(datadate):
     hours.set(Setday.hour)
     hours.grid(row=7, column=1, pady=1)
 
-    # กรอกเป็นนาที
+    # input minute
     Label(frame_date, text="Minute", font=fontnew).grid(row=8, column=0)
     minutes = ttk.Combobox(frame_date,
                            values=list(range(00, 60)),
@@ -454,7 +458,7 @@ def create(datadate):
     minutes.set(0)
     minutes.grid(row=8, column=1, pady=1)
 
-    # ยืนยันเก็บข้อมูล
+    # submit data
     submit = Button(
         frame_date,
         text="Submit",
@@ -464,7 +468,7 @@ def create(datadate):
     submit.grid(row=9, column=4, pady=2, padx=5)
     submit.bind('<Button-1>', on_click)
 
-    # ปิดแท็บ
+    # close tab
     close = Button(frame_date,
                    text="Cancel",
                    command=top.destroy,
@@ -476,7 +480,7 @@ def create(datadate):
 # main page completed
 def main(root):
 
-    # เก็บปี และเดือน
+    # value year and month
     year = Setday.year
     month = Setday.month
 
@@ -487,7 +491,6 @@ def main(root):
                        fg='black',
                        font=fontmain)
     show_month.grid(padx=10, pady=30)
-    # labels.append(show_month)
 
     # use class Display for show days in thismonth
     display = show(root, year, month)
