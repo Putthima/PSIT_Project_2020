@@ -1,19 +1,44 @@
 from tkinter import *
 from tkinter import ttk
+import time
+import csv
+
+class Setday():
+    # เช็คเวลาปัจจุบัน
+    timer = time.localtime()
+    # แปลงเป็นปี
+    year = timer.tm_year
+    # แปลงเป็นเดือน
+    month = timer.tm_mon
+    # แปลงเป็นวัน
+    day = timer.tm_mday
+    # แปลงเป็นชัวโมง
+    hour = timer.tm_hour
+    # แปลงเป็นนาที
+    mins = timer.tm_min
+    # แปลงเป็นวินาที
+    seccon = timer.tm_sec
+
 
 
 def on_click(e):
-    # print("Your Activity is:%s\nPriority:%s\nDay:%s\nMonth: \
-    #     %s\nYear:%s\nTime:%s:%s" % (tv_atv.get(), v_important.get(), \
-    #         days.get(), months.get(), years.get(), hours.get(), minutes.get()))
+    #เก็บค่าIDให้แตกต่างกัน
+    ids = str(Setday.day)+str(Setday.month)+str(Setday.year)+str(Setday.hour)+str(Setday.mins)+str(Setday.seccon)
 
-    keep = {'Activity':tv_atv.get(),
+    keep = {'ID' : ids,
+            'Activity':tv_atv.get(),
             'Priority':v_important.get(),
             'Day':days.get(),
             'Month':months.get(),
             'Year':years.get(),
             'Time':[hours.get(),minutes.get()]
     }
+    #หมายความว่า เปิด ไฟล์ชื่อ addแบบประเภท"append" newline endcodingให้รองรับภาษาไทย
+    with open('record.csv', 'a', newline="", encoding="utf8") as f:
+        writer = csv.writer(f)
+        #เขียนอะไรลงในไฟล์บ้าง
+        writer.writerow([ids, tv_atv.get(), v_important.get(), days.get(), months.get(), years.get(),\
+            hours.get(), minutes.get()])
 
     print(keep)
 
