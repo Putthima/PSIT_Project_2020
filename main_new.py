@@ -16,13 +16,13 @@ global count
 count = 0
 
 run = Tk()
-run.geometry("800x500")
 run.maxsize(800, 500)
 run.minsize(800, 500)
 run.title("inminder")
 run.iconbitmap("image/realreal.ico")
 
 fontmain = font.Font(family='MS UI Gothic', size=20, weight='bold')
+fontnew = font.Font(family='MS UI Gothic', size=20, weight='bold')
 fontadd = font.Font(family='MS UI Gothic', size=20, weight='bold')
 
 
@@ -77,8 +77,9 @@ def show(master, year, month):
         month -= 12
 
     # สร้าง head วัน จ-อา
+    colorday = ['#F7DC6F', '#F1948A', '#82E0AA', '#F0B27A', '#85C1E9', '#C39BD3', '#D98880']
     for i, j in enumerate(["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]):
-        show_day = Label(master, text=j, font=fontmain)
+        show_day = Label(master, text=j, font=fontmain, bg=colorday[i])
         show_day.grid(row=2, column=i+1, padx=10, pady=10)
         labels.append(show_day)
 
@@ -176,9 +177,9 @@ def openwindow(keepdate):
     global dayframe
     dayframe = Toplevel(bg="#3d405b")  # พื้นหลังหน้าAdd
     dayframe.title("Create your plan")
-    dayframe.geometry("400x600")
+    dayframe.geometry("600x800")
 
-    text = Label(dayframe, text="Date : %d/%d/%d" % (keepdate.day, keepdate.month, keepdate.year), fg="#F4D35E", bg='#3d405b')
+    text = Label(dayframe, text="Date : %d/%d/%d" % (keepdate.day, keepdate.month, keepdate.year), fg="#F4D35E", bg='#3d405b', font=fontmain)
     text.pack(padx=20, pady=20)
     # อ่านไฟล์มาจาก record.csv
     with open(r"record.csv", newline="", encoding="utf8") as f:
@@ -193,26 +194,26 @@ def openwindow(keepdate):
 
             if row["Day"] == str(keepdate.day) and row["Month"] == str(keepdate.month) and row["Year"] == str(keepdate.year):
                 if row["Priority"] == "1":
-                    Label(dayframe, text="ชื่อ : "+ row["Activity"] + "\n กำหนดการ : " + 
-                          row["Hours"]+":"+row["Minute"], bg="#ec3624").pack()
-                    Label(dayframe, text="ความสำคัญ : " + "Important And Hurry",
+                    Label(dayframe, text="ชื่อ : "+ row["Activity"] + "\n เวลา : " + 
+                          row["Hours"]+":"+row["Minute"], bg="#ec3624", font=fontnew).pack()
+                    Label(dayframe, text="ความสำคัญ : " + "Important And Hurry", font=fontnew,
                           bg="#ec3624").pack()
                 if row["Priority"] == "2":
-                    Label(dayframe, text="ชื่อ : "+ row["Activity"] + "\n กำหนดการ : " + 
-                          row["Hours"]+":"+row["Minute"], bg="#fa9a00").pack()
-                    Label(dayframe, text="ความสำคัญ : " + "Important But Slowly",
+                    Label(dayframe, text="ชื่อ : "+ row["Activity"] + "\n เวลา : " + 
+                          row["Hours"]+":"+row["Minute"], bg="#fa9a00", font=fontnew).pack()
+                    Label(dayframe, text="ความสำคัญ : " + "Important But Slowly", font=fontnew,
                           bg="#fa9a00").pack()
                 if row["Priority"] == "3":
-                    Label(dayframe, text="ชื่อ : "+ row["Activity"] + "\n กำหนดการ : " + 
-                          row["Hours"]+":"+row["Minute"], bg="#60ba46").pack()
-                    Label(dayframe, text="ความสำคัญ : " + "Unimportant And Hurry",
+                    Label(dayframe, text="ชื่อ : "+ row["Activity"] + "\n เวลา : " + 
+                          row["Hours"]+":"+row["Minute"], bg="#60ba46", font=fontnew).pack()
+                    Label(dayframe, text="ความสำคัญ : " + "Unimportant And Hurry", font=fontnew,
                           bg="#60ba46").pack()
                 if row["Priority"] == "4":
-                    Label(dayframe, text="ชื่อ : "+ row["Activity"] + "\n กำหนดการ : " + 
-                          row["Hours"]+":"+row["Minute"], bg="#a9ff17").pack()
-                    Label(dayframe, text="ความสำคัญ : " + "Unimportant But Slowly",
+                    Label(dayframe, text="ชื่อ : "+ row["Activity"] + "\n เวลา : " + 
+                          row["Hours"]+":"+row["Minute"], bg="#a9ff17", font=fontnew).pack()
+                    Label(dayframe, text="ความสำคัญ : " + "Unimportant But Slowly", font=fontnew,
                           bg="#a9ff17").pack()
-                Button(dayframe, text="Delete", command=value).pack(pady=10)
+                Button(dayframe, text="success", command=value, font=fontnew, bg="#2ECC71").pack(pady=5)
 
     # เก็บค่าตัวแปร ส่งไป create()
     datadate = partial(create, keepdate)
@@ -268,27 +269,27 @@ def create(datadate):
 
     # ชื่อกิจกรรม
     frame_activity = Frame(top)
-    frame_activity.grid(row=0, column=0, sticky=W)
+    frame_activity.grid(row=0, column=0, sticky=W, pady=1)
 
     value_activity = StringVar()
 
     # text activity
-    Label(frame_activity, text="Activity : ").pack(side=LEFT)
+    Label(frame_activity, text="Activity : ", font=fontnew).pack(side=LEFT, pady=1)
 
     # form activity
     Entry(frame_activity, width=25,
-          textvariable=value_activity).pack(side=LEFT)
+          textvariable=value_activity).pack(side=LEFT, pady=1)
 
     # แสดงหัวข้อความสำคัญ
     frame_text = Frame(top)
     frame_text.grid(row=1, column=0, sticky=W)
 
     # text important
-    Label(frame_text, text="Important Level (Choose one)").pack()
+    Label(frame_text, text="Important Level (Choose one)", font=fontnew).pack(pady=1)
 
     # เก็บค่าความสำคัญ
     frame_im = Frame(top)
-    frame_im.grid(row=2, column=0, sticky=W)
+    frame_im.grid(row=2, column=0, sticky=W, pady=1)
 
     value_important = StringVar()
     value_important.set("Unimportant But Slowly")
@@ -304,65 +305,58 @@ def create(datadate):
     # show choice of important
     item_per_row = 2
     for i in range(len(important)):
-        Radiobutton(frame_im, text=important[i], value=important[i], bg=color[i],
+        Radiobutton(frame_im, text=important[i], value=important[i], bg=color[i], font=fontnew,
                     variable=value_important, indicatoron=False).grid(
-                        row=(i // item_per_row) + 2, column=i % item_per_row, sticky=W
+                        row=(i // item_per_row) + 2, column=i % item_per_row, sticky=W, pady=1
         )
-    # Edit
-    Label(frame_im, text="Date and Times").grid(row=4, column=0, sticky=W)
 
     # เก็บค่าวันและเวลา
     frame_date = Frame(top)
-    frame_date.grid(row=5, column=0, sticky=W)
+    frame_date.grid(row=5, column=0, sticky=W, pady=1)
 
     # กรอกเป็นวัน
     daylist = ['Day'] + list(range(1, 32))
-    Label(frame_date, text="Day").grid(row=4, column=0)
-    days = ttk.Combobox(frame_date, values=daylist, width=4, state="readonly")
+    Label(frame_date, text="Day", font=fontnew).grid(row=4, column=0)
+    days = ttk.Combobox(frame_date, values=daylist, width=4, state="readonly", font=fontnew)
     days.set(datadate.day)
-    days.grid(row=4, column=1)
+    days.grid(row=4, column=1, pady=1)
 
     # กรอกเป็นเดือน
     monthlist = ['Month'] + list(range(1, 13))
-    Label(frame_date, text="Month").grid(row=4, column=2)
-    months = ttk.Combobox(frame_date, values=monthlist,
+    Label(frame_date, text="Month" , font=fontnew).grid(row=5, column=0)
+    months = ttk.Combobox(frame_date, values=monthlist, font=fontnew,
                           width=6, state="readonly")
     months.set(datadate.month)
-    months.grid(row=4, column=3)
+    months.grid(row=5, column=1, pady=1)
 
     # กรอกเป็นปี
     yearslist = ['Year'] + list(range(2025, 2014, -1))
-    Label(frame_date, text="Year").grid(row=4, column=4)
-    years = ttk.Combobox(frame_date, values=yearslist,
+    Label(frame_date, text="Year", font=fontnew).grid(row=6, column=0)
+    years = ttk.Combobox(frame_date, values=yearslist, font=fontnew,
                          width=5, state="readonly")
     years.set(datadate.year)
-    years.grid(row=4, column=5)
+    years.grid(row=6, column=1, pady=1)
 
     # กรอกเป็นชัวโมง
-    hours = ttk.Combobox(frame_date,
-                         values=list(range(00, 24)),
-                         state="readonly")
+    Label(frame_date, text="Hour" , font=fontnew).grid(row=7, column=0)
+    hours = ttk.Combobox(frame_date, values=list(range(00, 24)), state="readonly", font=fontnew)
     hours.set(Setday.hour)
-    hours.grid(row=5, column=0)
+    hours.grid(row=7, column=1, pady=1)
 
     # กรอกเป็นนาที
-    minutes = ttk.Combobox(frame_date,
-                           values=list(range(00, 60)),
-                           state="readonly")
-    minutes.set(Setday.mins)
-    minutes.grid(row=5, column=1)
+    Label(frame_date, text="Minute" , font=fontnew).grid(row=8, column=0)
+    minutes = ttk.Combobox(frame_date, values=list(range(00, 60)), state="readonly", font=fontnew)
+    minutes.set(0)
+    minutes.grid(row=8, column=1, pady=1)
 
     # ยืนยันเก็บข้อมูล
-    submit = Button(frame_date, text="Submit", bg="#81b29a")
-    submit.grid(row=6, column=1)
+    submit = Button(frame_date, text="Submit", bg="#81b29a", font=fontnew)
+    submit.grid(row=9, column=1, pady=2)
     submit.bind('<Button-1>', on_click)
 
     # ปิดแท็บ
-    close = Button(frame_date,
-                   text="Cancel",
-                   command=top.destroy,
-                   bg="#e07a5f")
-    close.grid(row=6, column=0)
+    close = Button(frame_date, text="Cancel", command=top.destroy, bg="#e07a5f", font=fontnew)
+    close.grid(row=9, column=0, pady=2)
 
 
 # main page completed
@@ -374,7 +368,7 @@ def main(root):
 
     # show name month
     show_month = Label(root, text=Setday.checkmonth(
-        year, month), bg='snow', fg='red', font=fontmain)
+        year, month), bg='snow', fg='black', font=fontmain)
     show_month.grid(padx=10, pady=30)
     # labels.append(show_month)
 
