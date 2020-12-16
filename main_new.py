@@ -461,7 +461,7 @@ def create(datadate):
         bg="#81b29a",
         font=fontnew,
     )
-    submit.grid(row=9, column=4, pady=2)
+    submit.grid(row=9, column=4, pady=2, padx=5)
     submit.bind('<Button-1>', on_click)
 
     # ปิดแท็บ
@@ -470,7 +470,7 @@ def create(datadate):
                    command=top.destroy,
                    bg="#e07a5f",
                    font=fontnew)
-    close.grid(row=9, column=3, pady=2)
+    close.grid(row=9, column=3, pady=2, padx=5)
 
 
 # main page completed
